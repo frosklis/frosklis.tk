@@ -1,4 +1,10 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://frosklis.tk/"
+languageCode = "es-es"
+title = "Claudio Noguera"
 theme = "diary"
+
+
+[params]
+  author = "Claudio Noguera"
+  description = "Sitio web de Claudio Noguera"
+  favicon = "/favicon.png"
