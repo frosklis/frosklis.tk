@@ -9,6 +9,7 @@ Es lo que lleva a trabajar de un modo amateur a trabajar de forma profesional.
 Y trabajar de foma profesional hace que uno se sienta productivo y esa satisfacción de sentirse productivo para mí vale más que los evidentes beneficios empresariales, que los hay y están documentados; hay muchos que han escrito mucho mejor que yo sobre el tema.
 
 Y yo, ¿cómo trabajaba antes? Pues imagino que como todos: sin orden. Cuando se es estudiante sí que hay orden: uno va a clase, le cuentan una cosa y necesita aprenderla (normalmente estudiando) para finalmente aprobar un examen. Tú te organizas tu tiempocomo quieres y hay gente que lo hace mejor que otra pero *se sabe perfectamente lo que hay que hacer*:
+
 - las tareas están claras
 - y acotadas en el tiempo
 
@@ -33,9 +34,11 @@ Entro ya en el mundo del software, que no es diferente a los otros; todo es tras
 Llevo algo más de dos años trabajando en agile. Y más de diez desarrollando software. Nos gusta en mi mundo decir que lo que yo hago no es software, que son modelos analíticos. Con esa excusa, trabajamos mal. Trabajamos mal porque no tenemos procesos y trabajamos mal porque escribimos software sin calidad. Eso se acabó.
 
 Desde un punto de vista de gestión de proyecto, agile es muy superior a todo lo que sea waterfall. Agile tiene varios marcos de ejecución (frameworks), los más conocidos son scrum y kanban. Son diferentes pero tienen sus puntos en común.
+
 - todo el mundo sabe (o puede saber) las tareas de todo el mundo
 - todos pueden ver las tareas pendientes
 - todos pueden saber cuánto tiempo ha llevado hacer una tarea (en realidad no siempre, pero el sotware ayuda)
+
 Esta transparencia hace que para los miembros de un equipo sea más fácil trabajar en equipo y que para la gente de fuera sea muy fácil hacer un seguimiento del proyecto. Responder a la típica pregunta de ¿vamos bien?
 
 - the art of doing twice the job in half the time
