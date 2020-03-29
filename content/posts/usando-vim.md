@@ -2,7 +2,7 @@
 title: "Usando vim"
 date: 2019-07-02T22:33:19+02:00
 draft: false
-tags: vim, hugo
+tags: [vim, hugo]
 ---
 
 El ratón es lo más cómodo pero el teclado es lo más rápido. Por eso quiero usar vim más en la medida de lo posible. Por ejemplo para bloguear. En [Hugo](https://gohugo.io/) se puede [crear un post con el comando *hugo new posts/un-post-nuevo.md*](https://gohugo.io/getting-started/quick-start/) y, para hacerlo más cómodo se puede añadir la línea 

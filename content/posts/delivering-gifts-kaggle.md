@@ -3,7 +3,7 @@ draft: false
 layout: post
 title: Delivering gifts (Kaggle)
 categories: ["Data science"]
-tags: Kaggle, data science
+tags: [Kaggle, data science]
 date: 2016-01-08
 ---
 

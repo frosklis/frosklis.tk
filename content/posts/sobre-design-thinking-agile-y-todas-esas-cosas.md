@@ -2,7 +2,7 @@
 title: "Sobre design thinking, agile y todas esas cosas"
 date: 2019-09-01T10:12:44+02:00
 draft: false
-tags: productividad, scrum, agile
+tags: [productividad, scrum, agile]
 ---
 
 Acabo de leer [este artículo](https://www.invisionapp.com/inside-design/what-is-design-thinking/), que está bien pero creo que no da en el clavo.

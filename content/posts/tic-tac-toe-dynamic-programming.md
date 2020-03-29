@@ -2,7 +2,7 @@
 draft: false
 date: 2016-06-24
 title: Tic-tac-toe dynamic programming
-tags: reinforcement learning, dynamic programming
+tags: [reinforcement learning, dynamic programming]
 ---
 
 This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using ["Reinforcement learning", by Richard Sutton and Andrew Barto][2] as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.

@@ -2,7 +2,7 @@
 draft: false
 title: Indonesia
 categories: Trips
-tags: Indonesia, planning
+tags: [Indonesia, planning]
 date: 2015-06-01
 ---
 

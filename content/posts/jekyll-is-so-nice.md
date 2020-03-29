@@ -2,7 +2,7 @@
 draft: false
 date: 2014-12-08
 title: Jekyll is so nice!
-tags: Jekyll, web development
+tags: [Jekyll, web development]
 ---
 I have moved my blog from a custom based solution to [jekyll]. What I was using was [appengine] and before that I had used [wordpress].
 

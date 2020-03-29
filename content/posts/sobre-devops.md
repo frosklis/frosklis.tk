@@ -2,7 +2,7 @@
 title: "Sobre devops"
 date: 2019-12-16T21:23:43+01:00
 draft: false
-tags: devops, productividad
+tags: [devops, productividad]
 ---
 Developer operations es lo que significa "devops". 
 Es lo que lleva a trabajar de un modo amateur a trabajar de forma profesional.

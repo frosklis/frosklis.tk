@@ -3,7 +3,7 @@ draft: false
 date: 2014-10-30
 layout: post
 title: Converting DNG to jpeg
-tags: raw, dng, pictures, btsync, scripting
+tags: [raw, dng, pictures, btsync, scripting]
 ---
 
 I shoot most of my pictures in RAW with my Nikon D90. Once I transfer them to my computer, I change the format to DNG (I am not sure if this is useful or not, but NEF is Nikon's proprietary format whereas DNG is standard, backed by Adobe and -in theory- future proof). However, raw formats are not useful for quick previewing and most machines do not support it natively (Macs do support it, though).
