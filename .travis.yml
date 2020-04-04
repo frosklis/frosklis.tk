@@ -4,6 +4,7 @@ install:
     - sudo dpkg -i hugo.deb
 
 script:
+  - git branch
   - hugo
 
 deploy:
