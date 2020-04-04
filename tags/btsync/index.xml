@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>btsync on Claudio Noguera</title>
+    <link>https://frosklis.tk/tags/btsync/</link>
+    <description>Recent content in btsync on Claudio Noguera</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    <lastBuildDate>Thu, 30 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://frosklis.tk/tags/btsync/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Converting DNG to jpeg</title>
+      <link>https://frosklis.tk/posts/converting-dng-to-jpg/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/converting-dng-to-jpg/</guid>
+      <description>I shoot most of my pictures in RAW with my Nikon D90. Once I transfer them to my computer, I change the format to DNG (I am not sure if this is useful or not, but NEF is Nikon&amp;rsquo;s proprietary format whereas DNG is standard, backed by Adobe and -in theory- future proof). However, raw formats are not useful for quick previewing and most machines do not support it natively (Macs do support it, though).</description>
+    </item>
+    
+  </channel>
+</rss>

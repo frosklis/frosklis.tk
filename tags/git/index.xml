@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Claudio Noguera</title>
+    <link>https://frosklis.tk/tags/git/</link>
+    <description>Recent content in git on Claudio Noguera</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    <lastBuildDate>Fri, 27 Mar 2020 19:30:22 +0100</lastBuildDate>
+    
+	<atom:link href="https://frosklis.tk/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Usando Git</title>
+      <link>https://frosklis.tk/posts/usando-git/</link>
+      <pubDate>Fri, 27 Mar 2020 19:30:22 +0100</pubDate>
+      
+      <guid>https://frosklis.tk/posts/usando-git/</guid>
+      <description>Además de los comandos básicos de git, cuando se trabaja con más personas se hace necesario no sólo el que todos los que trabajan en el equipo usen git sino acordar también la manera en la que se va a usar el repositorio. Esto es definir una manera de llamar las ramas y una política de ramificación (qué ramas se pueden crear a partir de otras) y qué tiene que pasar para poder integrar unas ramas en otras (git merge).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scrum on Claudio Noguera</title>
+    <link>https://frosklis.tk/tags/scrum/</link>
+    <description>Recent content in scrum on Claudio Noguera</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    <lastBuildDate>Sun, 01 Sep 2019 10:12:44 +0200</lastBuildDate>
+    
+	<atom:link href="https://frosklis.tk/tags/scrum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sobre design thinking, agile y todas esas cosas</title>
+      <link>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</link>
+      <pubDate>Sun, 01 Sep 2019 10:12:44 +0200</pubDate>
+      
+      <guid>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</guid>
+      <description>Acabo de leer este artículo, que está bien pero creo que no da en el clavo.
+Desde hace algún tiempo, y para una tipología de proyectos amplia (no solo software), se viene diciendo que la planificación en cascada (waterfall) no tiene sentido. Y creo firmemente que es verdad. Tiene dos problemas: (casi) siempre hay retrasos y, aún peor, no está claro que se resuelva el problema que hay que resolver.</description>
+    </item>
+    
+  </channel>
+</rss>

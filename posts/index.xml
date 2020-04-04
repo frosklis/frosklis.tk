@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Claudio Noguera</title>
+    <link>https://frosklis.tk/posts/</link>
+    <description>Recent content in Posts on Claudio Noguera</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    <lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://frosklis.tk/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mi primer paquete en Pypi</title>
+      <link>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</link>
+      <pubDate>Sat, 04 Apr 2020 00:33:00 +0200</pubDate>
+      
+      <guid>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</guid>
+      <description>He hecho un paquete que he llamado cnml. Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos es open source es mucho más fácil todo.
+Todo empieza por tener un código bien estructurado que se pueda instalar con setuptools y con crearse una cuenta en pypi.org. El único requisito es que el nombre del paquete no exista en pypi.</description>
+    </item>
+    
+    <item>
+      <title>Usando Git</title>
+      <link>https://frosklis.tk/posts/usando-git/</link>
+      <pubDate>Fri, 27 Mar 2020 19:30:22 +0100</pubDate>
+      
+      <guid>https://frosklis.tk/posts/usando-git/</guid>
+      <description>Además de los comandos básicos de git, cuando se trabaja con más personas se hace necesario no sólo el que todos los que trabajan en el equipo usen git sino acordar también la manera en la que se va a usar el repositorio. Esto es definir una manera de llamar las ramas y una política de ramificación (qué ramas se pueden crear a partir de otras) y qué tiene que pasar para poder integrar unas ramas en otras (git merge).</description>
+    </item>
+    
+    <item>
+      <title>Sobre devops</title>
+      <link>https://frosklis.tk/posts/sobre-devops/</link>
+      <pubDate>Mon, 16 Dec 2019 21:23:43 +0100</pubDate>
+      
+      <guid>https://frosklis.tk/posts/sobre-devops/</guid>
+      <description>Developer operations es lo que significa &amp;ldquo;devops&amp;rdquo;. Es lo que lleva a trabajar de un modo amateur a trabajar de forma profesional. Y trabajar de foma profesional hace que uno se sienta productivo y esa satisfacción de sentirse productivo para mí vale más que los evidentes beneficios empresariales, que los hay y están documentados; hay muchos que han escrito mucho mejor que yo sobre el tema.
+Y yo, ¿cómo trabajaba antes?</description>
+    </item>
+    
+    <item>
+      <title>Sobre design thinking, agile y todas esas cosas</title>
+      <link>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</link>
+      <pubDate>Sun, 01 Sep 2019 10:12:44 +0200</pubDate>
+      
+      <guid>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</guid>
+      <description>Acabo de leer este artículo, que está bien pero creo que no da en el clavo.
+Desde hace algún tiempo, y para una tipología de proyectos amplia (no solo software), se viene diciendo que la planificación en cascada (waterfall) no tiene sentido. Y creo firmemente que es verdad. Tiene dos problemas: (casi) siempre hay retrasos y, aún peor, no está claro que se resuelva el problema que hay que resolver.</description>
+    </item>
+    
+    <item>
+      <title>Usando vim</title>
+      <link>https://frosklis.tk/posts/usando-vim/</link>
+      <pubDate>Tue, 02 Jul 2019 22:33:19 +0200</pubDate>
+      
+      <guid>https://frosklis.tk/posts/usando-vim/</guid>
+      <description>El ratón es lo más cómodo pero el teclado es lo más rápido. Por eso quiero usar vim más en la medida de lo posible. Por ejemplo para bloguear. En Hugo se puede crear un post con el comando hugo new posts/un-post-nuevo.md y, para hacerlo más cómodo se puede añadir la línea
+NewContentEditor = &amp;#34;vim&amp;#34; al config.toml de modo que al escribir ese comando se abra vim. Lo cuentan aquí</description>
+    </item>
+    
+    <item>
+      <title>Distance between two random points in a square</title>
+      <link>https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/</link>
+      <pubDate>Thu, 28 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/</guid>
+      <description>I don&amp;rsquo;t remember where I read this problem. What is the average distance of two points chosen randomly in a square?
+This simple python script gives an approximation.
+import random import math n = 100000 s = 0 for i in range(n): p = [random.random() for i in range(4)] s += math.sqrt((p[0]-p[2])**2 + (p[1]-p[3])**2) print(s / n) Turns out it is around 0.52 (I got 0.5217335102356029 from my simulation). This is a hard one to solve analytically, but we don&amp;rsquo;t need to.</description>
+    </item>
+    
+    <item>
+      <title>Tic-tac-toe dynamic programming</title>
+      <link>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</link>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</guid>
+      <description>This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using &amp;ldquo;Reinforcement learning&amp;rdquo;, by Richard Sutton and Andrew Barto as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.
+As with everything, first steps are humble: the tic-tac-toe game.</description>
+    </item>
+    
+    <item>
+      <title>To Africa or not to Africa</title>
+      <link>https://frosklis.tk/posts/to-africa-or-not-to-africa/</link>
+      <pubDate>Mon, 16 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/to-africa-or-not-to-africa/</guid>
+      <description>My girlfriend and I, we have got holidays in August. A little more than three weeks. However, we still haven&amp;rsquo;t booked anything.
+The only thing we are really sure of is that we will go somewhere none of us has previously been before.
+So we were thinking of going to Africa: a self drive tour across Namibia and Botswana.
+Pros:
+ It is a once in a lifetime experience. The scenery is stunning.</description>
+    </item>
+    
+    <item>
+      <title>I got myself a Raspberry Pi</title>
+      <link>https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/</link>
+      <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/</guid>
+      <description>The new Raspberry Pi 3 is out and I got one. I will be using it as a media center with, but I will have other software installed as well. It has a 2TB drive attached to it which I will use to store series, movies and - most importantly - pictures.
+Software installed:
+ Kodi media center Flexget Transmission Dropbox Bittorrent sync  I want to use it also as a backup tool, so when I plug in my hard drive (the one I travel with) the important stuff gets automatically copied to the RPi hard drive.</description>
+    </item>
+    
+    <item>
+      <title>Delivering gifts (Kaggle)</title>
+      <link>https://frosklis.tk/posts/delivering-gifts-kaggle/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/delivering-gifts-kaggle/</guid>
+      <description>There are a lot of things we take for granted. One of these things is logistics. We assume that when we have one order delivered it will arrive on time, but we often overlook how difficult it actually is. Well, there was a Kaggle competition just about that. And they just made it harder.
+The [travelling salesman problem] is perhaps the best known NP problem. Given a set of cities, the goal is to find the shortest route that goes through all the cities.</description>
+    </item>
+    
+    <item>
+      <title>Inbox zero</title>
+      <link>https://frosklis.tk/posts/inbox-zero/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/inbox-zero/</guid>
+      <description>Despite a lot of hype saying email is broken, I just do not agree. I take pride in going through every email that comes to me. I do the same with the RSS subscriptions.
+But there is a catch: I do not read it all. I quickly go through the email and - if it is an automated email - I just press &amp;ldquo;j&amp;rdquo; in gmail (or feedly) or the down arrow in my work mail and go to the next one.</description>
+    </item>
+    
+    <item>
+      <title>Indonesia</title>
+      <link>https://frosklis.tk/posts/indonesia/</link>
+      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/indonesia/</guid>
+      <description>My next big trip will be to Indonesia, where I will go with my girlfriend (you will be able to follow the trip in our blog. It will be the farthest I’ve ever been from my home country - Spain. Going far away is a big factor on making a trip memorable. This will be some 12,000 km away.
+Indonesia is very different to any other country I have been to, some firsts will happen there .</description>
+    </item>
+    
+    <item>
+      <title>Thousand BHP in Formula 1?</title>
+      <link>https://frosklis.tk/posts/thousand-bhp-in-formula-1/</link>
+      <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/thousand-bhp-in-formula-1/</guid>
+      <description>With the new regulation of Formula 1, an emphasis has been put in cost reduction and hybrid technology development. I think it is far too regulated and do not really believe that a cost reduction has been achieved (though I do no have data to back it up). Anyway, thousand horsepower?
+That is a psychological barrier and honestly, difficult to answer. Right now, F1 cars do not have engines, they have &amp;ldquo;power units&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Jekyll is so nice!</title>
+      <link>https://frosklis.tk/posts/jekyll-is-so-nice/</link>
+      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/jekyll-is-so-nice/</guid>
+      <description>I have moved my blog from a custom based solution to jekyll. What I was using was appengine and before that I had used wordpress.
+Wordpress doesn&amp;rsquo;t give you too much control. Of course you can configure it but it is so hard to do, I find PHP a nightmare and Wordpress&amp;rsquo; API difficult to interact with. It was a pain doing plugins. It has one big advange though: it is easy to use for any user.</description>
+    </item>
+    
+    <item>
+      <title>P2P lending</title>
+      <link>https://frosklis.tk/posts/p2p-lending/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/p2p-lending/</guid>
+      <description>I like my savings to produce more money. At least I try with, currently, bad results. However I do follow the golden rule of not risking money you really need. I have explored a lot of options in the past such as shares, investment funds or even derivatives such as warrants and CFDs. Overall, I have lost money.
+And I have lost it because I really hadn&amp;rsquo;t taken it seriously. It is a full time job and requires a lot of studying&amp;hellip; or a lot of good luck.</description>
+    </item>
+    
+    <item>
+      <title>Movistar DNS</title>
+      <link>https://frosklis.tk/posts/movistar-dns/</link>
+      <pubDate>Wed, 05 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/movistar-dns/</guid>
+      <description>I had been suffering connection issues lately which made the internet feel slow. Frustrating, as I have a 100 Mbps FTTH connection. The problem is the DNS.
+Most of the time I use Google&amp;rsquo;s DNS:
+ 8.8.8.8 8.8.4.4  At one point I decided I should use Movistar&amp;rsquo;s own DNS because it pings in about 5ms, which is good, so I added them to my DNSs. However they are not reliable at all.</description>
+    </item>
+    
+    <item>
+      <title>Converting DNG to jpeg</title>
+      <link>https://frosklis.tk/posts/converting-dng-to-jpg/</link>
+      <pubDate>Thu, 30 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/converting-dng-to-jpg/</guid>
+      <description>I shoot most of my pictures in RAW with my Nikon D90. Once I transfer them to my computer, I change the format to DNG (I am not sure if this is useful or not, but NEF is Nikon&amp;rsquo;s proprietary format whereas DNG is standard, backed by Adobe and -in theory- future proof). However, raw formats are not useful for quick previewing and most machines do not support it natively (Macs do support it, though).</description>
+    </item>
+    
+    <item>
+      <title>So I have a blog</title>
+      <link>https://frosklis.tk/posts/so-i-have-a-blog/</link>
+      <pubDate>Sat, 25 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://frosklis.tk/posts/so-i-have-a-blog/</guid>
+      <description>A lot of times have I started some kind of blog. I have one already together with my girlfriend where we write about our trips. I used to have one while at university where I talked about the restaurants where we had lunch. I have an account in a lot of services. But a blog as such where I wrote whatever came to my mind and in English, it is a first time.</description>
+    </item>
+    
+  </channel>
+</rss>

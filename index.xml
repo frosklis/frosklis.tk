@@ -1,0 +1,321 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claudio Noguera</title>
+    <link>https://frosklis.tk/</link>
+    <description>Recent content on Claudio Noguera</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    <lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate>
+    
+        <atom:link href="https://frosklis.tk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Mi primer paquete en Pypi</title>
+        <link>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</link>
+        <pubDate>Sat, 04 Apr 2020 00:33:00 +0200</pubDate>
+        
+        <guid>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/mi-primer-paquete-en-pypi/ -&lt;p&gt;He hecho &lt;a href=&#34;https://github.com/frosklis/cn-machine-learning&#34;&gt;un paquete que he llamado cnml&lt;/a&gt;. Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos es open source es mucho más fácil todo.&lt;/p&gt;
+&lt;p&gt;Todo empieza por tener un &lt;a href=&#34;https://packaging.python.org/tutorials/packaging-projects/&#34;&gt;código bien estructurado que se pueda instalar con setuptools&lt;/a&gt; y con crearse una cuenta en &lt;a href=&#34;https://pypi.org/&#34;&gt;pypi.org&lt;/a&gt;. El único requisito es que el nombre del paquete no exista en pypi. Hecho eso, el paquete se puede subir por línea de comandos.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python setup.py dist
+twine upload dist&lt;span style=&#34;color:#ae81ff&#34;&gt;\*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Existen formas de automatizar lo anterior para que no sea necesario introducir el nombre de usuario y contraseña cada vez. Pero puestos a hacer eso, es mejor todavía hacer el ciclo completo de devops. Las prácticas de integración continua han mejorado mucho en los últimos años en cuanto a facilidad de uso. Ahora cualquiera lo puede hacer y contribuyen a que el código que tenemos sea mantenible. El desencadenante de todo es un commit. Se puede configurar github (o cualquier repositorio git) para que se desencaden acciones cada vez que ocurre algo. De hecho todos los grandes (github, gitlab, bitbucket y los internos de las plataformas en la nube de Amazon, Google y Microsoft) tienen APIs y se pueden conectar a terceros.&lt;/p&gt;
+&lt;p&gt;En el mundo open source el más famoso es &lt;a href=&#34;https://jenkins.io/&#34;&gt;Jenkins&lt;/a&gt;. Los proveedores cloud tienen los suyos, Atlassian tiene el suyo. Lo que no me gusta de Jenkins es que tiene la barrera de entrada de que hace falta una infraestructura donde desplegarlo y hacerlo funcionar. Por eso yo he utilizado &lt;a href=&#34;https://travis-ci.com/&#34;&gt;Travis&lt;/a&gt; que funciona como servicio y es gratis para proyectos opensource. Podía haber utilizado también &lt;a href=&#34;https://circleci.com/&#34;&gt;Circle CI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Usando travis, lo único que hay que hacer es configurar el script .travis.yml que tiene que estar en la raíz del repositorio. &lt;a href=&#34;https://github.com/frosklis/cn-machine-learning/blob/master/.travis.yml&#34;&gt;El mío es este&lt;/a&gt; y hoy (4 de abril de 2020) tiene esta pinta:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;language: python
+script: pytest --cov=cnml
+after_success: bash &amp;lt;(curl -s https://codecov.io/bash)
+deploy:
+  on:
+    tags: true
+  provider: pypi
+  user: __token__
+  password:
+    secure: lUDdfS0w/P3YF7QospZmVHo0YWuFvuIwuteIQjzUuuJbOlA5K00iNHvuSp9cLx89pFL+dWO61ar2qYechdT1UdtKlvEZpbthgMACMkftY8F+LBUUs95DIph/1arUabr6ZOVyuc6kuc3YvaHMK78FjEB4J5YftRznp3LVLJPpWIjL1oOpPCbI4ETjxA+SvLqQGerKfTPUQWogjB/iDjLOczdWY9y6haHaF43svaFy7LWL2fxTC95PKhXANjGlME0mociZI1aIykZbOk58/WOLew4De7jCeN/sCathBKpq4cAV222RoAV73Rx9FWucS2U4XeRFGMUA8Bvv3T0gCoIzTN1C+wmN7g0SJBqVJkdSf/eN/fPo4sw8Fu0Ohs0iJr1f74h2z6EQeuKdMER5sxEUP1t1HWj8elQ1JwQT1h4AjXJSccGFJcYdvaP4SWr2+2x4uayPbg32R+5iQu0y7WMDtEH5KsNgJ9GBJ7YxLnLImx2UtkF6Iem/AYTYcP2PikW2RbOZM1A4DWakYvMAzegyWj8yjOp65tWfp2ntQ6LzjAJbauzBnVmGkoBAS2zQPv0kbiYoeE0pdQKaHqAl9tU0EjotN/n0DGKrEn0zay+GbMrL0uyDSwCkqHpxdBW5hCVJAzLQg3EJy8lVNyDp3EYq3Bl/bPqjRmWxJC6iLMXo4Z4=
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Hace más cosas que simplemente generar el paquete:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;genera el paquete&lt;/li&gt;
+&lt;li&gt;ejecuta los tests con cobertura&lt;/li&gt;
+&lt;li&gt;manda el informe de esa cobertura a codecov.io para verlo gráficamente&lt;/li&gt;
+&lt;li&gt;y sólo si el commit corresponde a una etiqueta sube el paquete a pypi&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Lo que no tengo todavía bien resuelto es el nombrado de versiones. Utilizo el estándar &lt;a href=&#34;https://semver.org&#34;&gt;semver&lt;/a&gt;, pero no de forma tan automatizada como me gustaría. En el repositorio en sí me gustaría hacer sólo lo que estoy haciendo ahora, que es tnner la versión (ahora mismo la 0.2.0 en desarrollo). Pero de cara a subirlo a pypi la versión no puede ser la misma, hay que añadirle apellidos, por ejemplo 0.1.1-dev1. Es la generación de ese apellido la que todavía no tengo bien resuelta.&lt;/p&gt;
+&lt;p&gt;Por cierto, no he dicho qué hace el paquete. Lo quiero utilizar para tener ordenadas implementaciones de algoritmos que utilizo para resolver algún problema. Ahora mismo tiene dos: un interpolador de curvas basado en &lt;a href=&#34;https://es.wikipedia.org/wiki/Spline&#34;&gt;splines&lt;/a&gt; y una trasnformación muy útil para modelos binarios, el &lt;a href=&#34;https://medium.com/@sundarstyles89/weight-of-evidence-and-information-value-using-python-6f05072e83eb&#34;&gt;WoE (peso de la evidencia)&lt;/a&gt;. Mi implementación del WoE es más elegante que la del link que pongo, la de los splines de momento no tanto.&lt;/p&gt;
+&lt;p&gt;Finalmente, dejo aquí unos enlaces que he leído para poder hacer esto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ron.sh/how-to-submit-a-package-to-pypi/&#34;&gt;Una guía de cómo hacerlo de principio a fin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56&#34;&gt;Consideraciones para subir un paquete a pypi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tendría que firmar las tags de los repositorios, &lt;a href=&#34;https://rem.co/blog/2015/02/12/git-the-difference-between-lightweight-and-annotated-tags/&#34;&gt;aquí se explica por qué&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+- https://frosklis.tk/posts/mi-primer-paquete-en-pypi/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Usando Git</title>
+        <link>https://frosklis.tk/posts/usando-git/</link>
+        <pubDate>Fri, 27 Mar 2020 19:30:22 +0100</pubDate>
+        
+        <guid>https://frosklis.tk/posts/usando-git/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/usando-git/ -&lt;p&gt;Además de los comandos básicos de git, cuando se trabaja con más personas se hace necesario no sólo el que todos los que trabajan en el equipo usen git sino acordar también la manera en la que se va a usar el repositorio. Esto es definir una manera de llamar las ramas y una política de ramificación (qué ramas se pueden crear a partir de otras) y qué tiene que pasar para poder integrar unas ramas en otras (&lt;code&gt;git merge&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Hacer esto de manera estandarizada tiene dos ventajas. Por un lado se hace más fácil el integrar el código en procesos de integración y desarrollo continuos (las famosas &lt;em&gt;devops&lt;/em&gt;). Y por otro, no menos importante, se elimina una barrera de entrada a la hora de incorporar nuevos miembros a los proyectos, pues es posible que ya conozcan el estándar.&lt;/p&gt;
+&lt;p&gt;Principalmente hay dos estándares, con sus pros y contras: &lt;a href=&#34;https://nvie.com/posts/a-successful-git-branching-model/&#34;&gt;git-flow&lt;/a&gt; y &lt;a href=&#34;https://guides.github.com/introduction/flow/&#34;&gt;github-flow&lt;/a&gt;. Personalmente, en los proyectos empresariales suelo utilizar git-flow y en los personales github-flow. El motivo es que git-flow hace que sea más difícil que lleguen cosas sin probar a la rama master y esto es bueno en equipos donde hay desarrolladores con poca experiencia y desarrolladores que no son desarrolladores (lo segundo es bastante habitual).&lt;/p&gt;
+&lt;p&gt;Además ese motivo, git-flow es bueno cuando hay que llevar un control estricto de las versiones para lo cual recomiendo usar &lt;a href=&#34;https://semver.org/&#34;&gt;&lt;em&gt;semver&lt;/em&gt;, el nombrado semántico de versiones&lt;/a&gt;. Una cosa importante es usar siempre el flag &lt;em&gt;&amp;ndash;no-ff&lt;/em&gt; al integrar las ramas, la guía de git-flow lo menciona. Esto hace que cada vez que se hace un &lt;em&gt;merge&lt;/em&gt; se cree un nuevo &lt;em&gt;commit&lt;/em&gt; aunque no sea necesario porque podría haberse hecho sin él (con un &lt;em&gt;fast-forward&lt;/em&gt;); en la práctica lo que se consigue es que en el dibujo de la historia del repositorio las ramas se vean con mucha más claridad y de forma explícita.&lt;/p&gt;
+&lt;p&gt;En esencia en git-flow todo el desarrollo ocurre en la rama &lt;em&gt;develop&lt;/em&gt;. De la rama develop salen features (ramas con el prefijo &lt;em&gt;feature/&lt;/em&gt;) y releases (ramas con el prefijo &lt;em&gt;release/&lt;/em&gt;). A la rama &lt;em&gt;master&lt;/em&gt; sólo se llevan los cambios de la rama &lt;em&gt;release&lt;/em&gt;. En la rama &lt;em&gt;release&lt;/em&gt; solo se pueden hacer correcciones de errores (&lt;em&gt;bugfix/&lt;/em&gt;) y en la rama &lt;em&gt;master&lt;/em&gt; sólo se pueden hacer &lt;em&gt;hotfix/&lt;/em&gt;. Es habitual que la rama &lt;em&gt;release&lt;/em&gt; se despliegue en un entorno de desarrollo o pruebas de usuario sobre el que se van corrigiendo errores y, una vez corregidos esos errores, se llevan (o no) a la rama &lt;em&gt;master&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Github-flow es más fácil de usar. A partir de la rama &lt;em&gt;master&lt;/em&gt; se crean ramas, con cualquier nombre. Cuando la rama está lista, se hace un &lt;em&gt;pull request&lt;/em&gt; y entonces se hacen los cambios pertinentes. En github además se tiene una especie de wiki asociados a los &lt;em&gt;pull requests&lt;/em&gt;, con lo cual se pueden discutir esos cambios. A partir de cualquier commit se puede hacer un despliegue. Una vez hechas las pruebas, el resultado es volver a &lt;em&gt;master&lt;/em&gt; con &lt;em&gt;merge&lt;/em&gt;. Y ya está.&lt;/p&gt;
+&lt;p&gt;Además (github-flow lo menciona pero no es imprescindible en su sistema) yo recomiendo hacer etiquetas con &lt;code&gt;git tag&lt;/code&gt; para tener control de las versiones, es mucho más fácil referirse a un commit concreto por su etiqueta que por su commit.&lt;/p&gt;
+- https://frosklis.tk/posts/usando-git/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Sobre devops</title>
+        <link>https://frosklis.tk/posts/sobre-devops/</link>
+        <pubDate>Mon, 16 Dec 2019 21:23:43 +0100</pubDate>
+        
+        <guid>https://frosklis.tk/posts/sobre-devops/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/sobre-devops/ -&lt;p&gt;Developer operations es lo que significa &amp;ldquo;devops&amp;rdquo;.
+Es lo que lleva a trabajar de un modo amateur a trabajar de forma profesional.
+Y trabajar de foma profesional hace que uno se sienta productivo y esa satisfacción de sentirse productivo para mí vale más que los evidentes beneficios empresariales, que los hay y están documentados; hay muchos que han escrito mucho mejor que yo sobre el tema.&lt;/p&gt;
+&lt;p&gt;Y yo, ¿cómo trabajaba antes? Pues imagino que como todos: sin orden. Cuando se es estudiante sí que hay orden: uno va a clase, le cuentan una cosa y necesita aprenderla (normalmente estudiando) para finalmente aprobar un examen. Tú te organizas tu tiempocomo quieres y hay gente que lo hace mejor que otra pero &lt;em&gt;se sabe perfectamente lo que hay que hacer&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;las tareas están claras&lt;/li&gt;
+&lt;li&gt;y acotadas en el tiempo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esas dos cosas hacen que recuerde con cariño la carrera, me gustaba lo que estudiaba y me gustaba estudiar; después de cada tarde de estudio veía avance.&lt;/p&gt;
+&lt;p&gt;Luego llega la vida profesional y lo primero que descubre uno es la cantidad de tiempo que se pierde. Y también que, a diferencia de la época universitaria, los proyectos salen adelante con el trabajo de más de una persona porque hay cosas que no se pueden hacer solo. Descubres esas cosas que a uno le cuentan en la carrera pero sólo desde un punto de vista teórico: los diagramas de Gantt, la planificación de proyectos, la gestión de dependencias, esas cosas. Todo eso es una gestión del tiempo en cascada (en inglés waterfall).&lt;/p&gt;
+&lt;p&gt;Y los proyectos en cascada se retrasan. Siempre. Y se retrasan mucho. El manifiesto agile, en 2001, fue una respuesta a todo eso y, como venía del mundo del software, está tardando en adoptarse en el resto de disciplinas. Es un error porque claramente waterfall no funciona.&lt;/p&gt;
+&lt;p&gt;No funciona, según la literatura, porque es imposible tener un plan maestro a largo plazo con el detalle suficiente. Es imposible anticipar todo lo que puede salir mal, las dependencias entre unas tareas y otras. Además de que da igual la experiencia que se tenga: estimar cuánto tiempo lleva hacer una cosa es algo que hacemos mal.&lt;/p&gt;
+&lt;p&gt;Pero hay otro aspecto que se menciona poco y que a mí me parece muy importante. Da igual el marco de trabajo que se tenga, ágil o en cascada, un proyecto va bien si las personas que trabajan en él son productivas. Y ser productivo significa trabajar mejor en el día a día. Es algo que en otros sectores sí se hace bien.&lt;/p&gt;
+&lt;p&gt;En la hostelería, por ejemplo. Vayan ustedes a un Starbucks, ¿a que funciona bien? Todo el mundo sabe lo que tiene que hacer y nadie está perdiendo el tiempo. Los procesos que existen están optimizados.&lt;/p&gt;
+&lt;p&gt;Un hospital también funciona bien. Utilizaré analogías con hospitales con frecuencia, al fin y al cabo en mi familia hay mucho médico. Decía, un hospital también funciona bien. El tiempo del médico en consulta o en un acto médico está bien aprovechado, existe toda una coreografía alrededor del paciente que hace que las cosas salgan bien. Muchas de las labores del personal médico están protocolizadas, eso reduce errores.&lt;/p&gt;
+&lt;p&gt;Y pese a todo esto, en las empresas tradicionalmente siempre se ha trabajado por proyectos en modo waterfall. Y cuando no se trabaja por proyecto, cuando se trabaja a demanda como hace un médico o un camarero, toda la optimización de procesos que existe en esos trabajos se olvida y sus enseñanzas no calan en el mundo de los proyectos.&lt;/p&gt;
+&lt;p&gt;Entro ya en el mundo del software, que no es diferente a los otros; todo es trasladable.&lt;/p&gt;
+&lt;p&gt;Llevo algo más de dos años trabajando en agile. Y más de diez desarrollando software. Nos gusta en mi mundo decir que lo que yo hago no es software, que son modelos analíticos. Con esa excusa, trabajamos mal. Trabajamos mal porque no tenemos procesos y trabajamos mal porque escribimos software sin calidad. Eso se acabó.&lt;/p&gt;
+&lt;p&gt;Desde un punto de vista de gestión de proyecto, agile es muy superior a todo lo que sea waterfall. Agile tiene varios marcos de ejecución (frameworks), los más conocidos son scrum y kanban. Son diferentes pero tienen sus puntos en común.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;todo el mundo sabe (o puede saber) las tareas de todo el mundo&lt;/li&gt;
+&lt;li&gt;todos pueden ver las tareas pendientes&lt;/li&gt;
+&lt;li&gt;todos pueden saber cuánto tiempo ha llevado hacer una tarea (en realidad no siempre, pero el sotware ayuda)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esta transparencia hace que para los miembros de un equipo sea más fácil trabajar en equipo y que para la gente de fuera sea muy fácil hacer un seguimiento del proyecto. Responder a la típica pregunta de ¿vamos bien?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the art of doing twice the job in half the time&lt;/li&gt;
+&lt;li&gt;the pragmatic programmer&lt;/li&gt;
+&lt;li&gt;git flow&lt;/li&gt;
+&lt;li&gt;devops handbook&lt;/li&gt;
+&lt;/ul&gt;
+- https://frosklis.tk/posts/sobre-devops/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Sobre design thinking, agile y todas esas cosas</title>
+        <link>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</link>
+        <pubDate>Sun, 01 Sep 2019 10:12:44 +0200</pubDate>
+        
+        <guid>https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/ -&lt;p&gt;Acabo de leer &lt;a href=&#34;https://www.invisionapp.com/inside-design/what-is-design-thinking/&#34;&gt;este artículo&lt;/a&gt;, que está bien pero creo que no da en el clavo.&lt;/p&gt;
+&lt;p&gt;Desde hace algún tiempo, y para una tipología de proyectos amplia (no solo software), se viene diciendo que la planificación en cascada (waterfall) no tiene sentido. Y creo firmemente que es verdad. Tiene dos problemas: (casi) siempre hay retrasos y, aún peor, no está claro que se resuelva el problema que hay que resolver.&lt;/p&gt;
+&lt;p&gt;Es muy difícil, en un proyecto largo, ser clarividente y tener una planificación detallada y acertada de lo que va a pasar a lo largo de todo el proyecto. Las necesidades cambian y los tiempos de ejecución de las tareas tienen demasiada incertidumbre. Por eso surge &lt;a href=&#34;https://agilemanifesto.org/&#34;&gt;agile&lt;/a&gt; y dentro de agile &lt;a href=&#34;https://www.amazon.es/Scrum-Doing-Twice-Work-Half/dp/1847941109&#34;&gt;scrum&lt;/a&gt;, que buscan solucionar estos dos problemas del waterfall.&lt;/p&gt;
+&lt;p&gt;Mi experiencia es que scrum funciona. Pero solo funciona si se hace bien, cosa complicada porque agile (y design thinking, ahora hablo de él) implica un cambio en la forma de pensar, un cambio de mentalidad. Son los más difíciles de hacer. Los detractores de scrum simplifican diciendo que en scrum no se planifica o que los plazos dan igual; nada más lejos de la realidad. En scrum sí se planifica, con mucho más detalle de hecho: cada cosa que hay que hacer (historia de usuario) debe estar lo suficientemente bien definida como para que se pueda descomponer en subtareas que se puedan estimar y acometer dentro de un sprint. Lo que cambia es el momento de definir esas historias de usuario, que sólo se definen bien cuando se acerca el momento de hacerlas. Definir qué hay que hacer y priorizarlo es el trabajo del product owner. Estimar es trabajo del equipo. Y se planifica, de hecho se planifica en detalle al principio de cada sprint. El sprint es inflexible, pero como se puede repriorizar al principio de cada sprint, el hacer el trabajo que hay que hacer y no otro está garantizado.&lt;/p&gt;
+&lt;p&gt;¿O no? ¿Cómo se decide qué es lo que hay que hacer? Aquí entra el design thinking. Para mí, design thinking no va de resolver problemas. Resolver problemas debería ser algo fácil (mejorar la capacidad de resolver problemas debería ser uno de los objetivos de todo sistema educativo), estamos entrenados para ello desde pequeños. Pero lo que se nos enseña a resolver son problemas que decide otro, los enunciados vienen dados. Lo difícil, lo verdaderamente importante es resolver el problema adecuado: ahí es donde entra el design thinking.&lt;/p&gt;
+&lt;p&gt;El &lt;a href=&#34;https://www.invisionapp.com/inside-design/what-is-design-thinking/&#34;&gt;el artículo que citaba al principio&lt;/a&gt; lo menciona como una de las fases del design thinking: empathize, define, ideate, prototype, test. Par mí eso es darle demasiado bombo a lo que es realmente design thinking. La fases de empatizar y definir sólo so hacen una vez, el resto son cíclicas. Y por eso definir es tan importante. De nada sirve tener una solución perfecta para un problema que no necesita ser resuelto. Scrum permite estar equivocado durante un solo sprint. Design thinking permite definir bien el problema.&lt;/p&gt;
+&lt;p&gt;Se complementan.&lt;/p&gt;
+- https://frosklis.tk/posts/sobre-design-thinking-agile-y-todas-esas-cosas/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Usando vim</title>
+        <link>https://frosklis.tk/posts/usando-vim/</link>
+        <pubDate>Tue, 02 Jul 2019 22:33:19 +0200</pubDate>
+        
+        <guid>https://frosklis.tk/posts/usando-vim/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/usando-vim/ -&lt;p&gt;El ratón es lo más cómodo pero el teclado es lo más rápido. Por eso quiero usar vim más en la medida de lo posible. Por ejemplo para bloguear. En &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; se puede &lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34;&gt;crear un post con el comando &lt;em&gt;hugo new posts/un-post-nuevo.md&lt;/em&gt;&lt;/a&gt; y, para hacerlo más cómodo se puede añadir la línea&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;NewContentEditor&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vim&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;al &lt;em&gt;config.toml&lt;/em&gt; de modo que al escribir ese comando se abra vim. Lo cuentan &lt;a href=&#34;https://discourse.gohugo.io/t/create-and-open-new-post-with-one-liner-in-terminal/1454/2&#34;&gt;aquí&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Y con eso es suficiente par empezar a trabajar. Parece más rápido que usar mi adorado &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;, que es el editor que realmente uso. Pero siempre viene ver saber usar vim porque es lo que está disponible en entornos Linux a los que se suele conectar uno por ssh.&lt;/p&gt;
+&lt;h2 id=&#34;algunos-trucos-de-vim&#34;&gt;Algunos trucos de vim&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;la letra &lt;em&gt;o&lt;/em&gt; inserta una línea debajo del cursor. En mayúscula lo hace encima. &lt;a href=&#34;https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines&#34;&gt;Editando el .vimrc se pueden hacer cosas más complejas&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;normalmente el cursor se desplaza por líneas físicas, no por líneas mostradas, &lt;a href=&#34;https://vim.fandom.com/wiki/Move_cursor_by_display_lines_when_wrapping&#34;&gt;eso también se puede cambiar&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;plugins&#34;&gt;Plugins&lt;/h2&gt;
+&lt;p&gt;Vim tiene plugins y no hay un sistema único para gestionarlos. Al fin y al cabo los plugins no son más que scripts que se llaman desde el .vmrc, donde se puede configurar todo.&lt;/p&gt;
+&lt;p&gt;Yo utilizo &lt;a href=&#34;https://github.com/junegunn/vim-plug&#34;&gt;plug.vim&lt;/a&gt; porque lo recomienda &lt;a href=&#34;https://www.youtube.com/watch?v=cTBgtN-s2Zw&#34;&gt;este señor&lt;/a&gt;&lt;/p&gt;
+- https://frosklis.tk/posts/usando-vim/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Distance between two random points in a square</title>
+        <link>https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/</link>
+        <pubDate>Thu, 28 Jul 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/ -&lt;p&gt;I don&amp;rsquo;t remember where I read this problem. What is the average distance of two points chosen randomly in a square?&lt;/p&gt;
+&lt;p&gt;This simple python script gives an approximation.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; random
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; math
+n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100000&lt;/span&gt;
+s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(n):
+    p &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [random&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;random() &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)]
+    s &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; math&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sqrt((p[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;p[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;])&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; (p[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;p[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;])&lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(s &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; n)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Turns out it is around 0.52 (I got 0.5217335102356029 from my simulation). This is a hard one to solve analytically, but we don&amp;rsquo;t need to.&lt;/p&gt;
+- https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Tic-tac-toe dynamic programming</title>
+        <link>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</link>
+        <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/ -&lt;p&gt;This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using &lt;a href=&#34;https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html&#34;&gt;&amp;ldquo;Reinforcement learning&amp;rdquo;, by Richard Sutton and Andrew Barto&lt;/a&gt; as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.&lt;/p&gt;
+&lt;p&gt;As with everything, first steps are humble: the tic-tac-toe game. The book does not provide an implementation. I found however &lt;a href=&#34;https://www.xanvong.com/posts/blog/tic-tac-toe-dp-and-memo&#34;&gt;this nice implementation&lt;/a&gt; using dynamic programming:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;build_best_responses&lt;/span&gt;(self, board&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None, player&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Recursively compute best responses for all subgames of current board.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    Call with no arguments to build the entire best_responses dict.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    This adds a key to best_responses for each possible board configuration
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    that could follow from board.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    player = 1 for X, -1 for O. This is the current player, i.e. the one
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    who goes next given the current board.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# Initialize&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; board &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; None:
+        board &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SIZE
+        player &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; board &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;best_responses:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+
+    win &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_win(board, player)
+    &lt;span style=&#34;color:#75715e&#34;&gt;# If win/loss/draw has been determined, the game is over.&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; win &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None:
+        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;best_responses[board] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (None, win) &lt;span style=&#34;color:#75715e&#34;&gt;# None =&amp;gt; no move needed&lt;/span&gt;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# If we don&amp;#39;t know the best response yet, compute it.&lt;/span&gt;
+    best_value &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i, val &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; enumerate(board):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; val &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
+            &lt;span style=&#34;color:#75715e&#34;&gt;# create new tuple with player&amp;#39;s move in ith slot&lt;/span&gt;
+            board2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; board[:i] &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; (player,) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; board[i&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;:]
+
+            &lt;span style=&#34;color:#75715e&#34;&gt;# If board2 is already in best_responses, this does nothing.&lt;/span&gt;
+            &lt;span style=&#34;color:#75715e&#34;&gt;# Otherwise, it ensures board2 is added to best_responses.&lt;/span&gt;
+            self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_best_responses(board2, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; player)
+            &lt;span style=&#34;color:#75715e&#34;&gt;# The player&amp;#39;s value given board2 is the reverse of the next&lt;/span&gt;
+            &lt;span style=&#34;color:#75715e&#34;&gt;# player&amp;#39;s value&lt;/span&gt;
+            value &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;best_responses[board2][&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; value &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; best_value:
+                best_value, best_move &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; value, i
+    self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;best_responses[board] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (best_move, best_value)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Is this reinforcement learning? What this code does is for any board composition it computes the value of the board, and it starts with the empty board. So effectively it is enumerating all the possible states, something that can be done for simple games like tic-tac-toe.&lt;/p&gt;
+&lt;p&gt;Being able to evaluate all posible states makes it possible to evaluate the game in a deterministic way, which makes finding the best policy easy. The difficulty of reinforcement learning, I guess, is determining this &amp;ldquo;board value&amp;rdquo;, it will not always be simple.&lt;/p&gt;
+- https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>To Africa or not to Africa</title>
+        <link>https://frosklis.tk/posts/to-africa-or-not-to-africa/</link>
+        <pubDate>Mon, 16 May 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://frosklis.tk/posts/to-africa-or-not-to-africa/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/to-africa-or-not-to-africa/ -&lt;p&gt;My girlfriend and I, we have got holidays in August. A little more than three weeks. However, we still haven&amp;rsquo;t booked anything.&lt;/p&gt;
+&lt;p&gt;The only thing we are really sure of is that we will go somewhere none of us has previously been before.&lt;/p&gt;
+&lt;p&gt;So we were thinking of going to Africa: a self drive tour across Namibia and Botswana.&lt;/p&gt;
+&lt;p&gt;Pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is a once in a lifetime experience.&lt;/li&gt;
+&lt;li&gt;The scenery is stunning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cons: everything else.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We should have organised everything at the beginning of the year or earlier.&lt;/li&gt;
+&lt;li&gt;Availability is scarce. Specially for those things that are worth the most, such as the Okavango delta or the Victoria falls.&lt;/li&gt;
+&lt;li&gt;It is expensive, very expensive.&lt;/li&gt;
+&lt;li&gt;It might be dangerous, and not because of humans. Roads are in poor contition and you do have to care about animals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So the question is to Africa or not to Africa?&lt;/p&gt;
+&lt;p&gt;The problem with exotic destinations is that you do have to plan well in advance, so we are actually in a hurry to choose a place to go.&lt;/p&gt;
+&lt;p&gt;Alternatives are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;India, but where in India? North of India and Nepal? Just the north of India?&lt;/li&gt;
+&lt;li&gt;Japan. Totally different, would be far easier to organize.&lt;/li&gt;
+&lt;li&gt;Elsewhere.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Fortunately, I know that anywhere we go we will have a good time.&lt;/p&gt;
+- https://frosklis.tk/posts/to-africa-or-not-to-africa/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>I got myself a Raspberry Pi</title>
+        <link>https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/</link>
+        <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/ -&lt;p&gt;The new Raspberry Pi 3 is out and I got one. I will be using it as a media center with, but I will have other software installed as well. It has a 2TB drive attached to it which I will use to store series, movies and - most importantly - pictures.&lt;/p&gt;
+&lt;p&gt;Software installed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kodi media center&lt;/li&gt;
+&lt;li&gt;Flexget&lt;/li&gt;
+&lt;li&gt;Transmission&lt;/li&gt;
+&lt;li&gt;Dropbox&lt;/li&gt;
+&lt;li&gt;Bittorrent sync&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I want to use it also as a backup tool, so when I plug in my hard drive (the one I travel with) the important stuff gets automatically copied to the RPi hard drive. I do have Bittorrent Sync for that, but given the amount of files I have, it is quite slow.&lt;/p&gt;
+- https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Delivering gifts (Kaggle)</title>
+        <link>https://frosklis.tk/posts/delivering-gifts-kaggle/</link>
+        <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
+        
+        <guid>https://frosklis.tk/posts/delivering-gifts-kaggle/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/delivering-gifts-kaggle/ -&lt;p&gt;There are a lot of things we take for granted. One of these things is logistics. We assume that when we have one order delivered it will arrive on time, but we often overlook how difficult it actually is. Well, there was a &lt;a href=&#34;https://www.kaggle.com/c/santas-stolen-sleigh&#34; title=&#34;Santa&#39;s stolen sleigh&#34;&gt;Kaggle competition just about that&lt;/a&gt;. And they just made it harder.&lt;/p&gt;
+&lt;p&gt;The [travelling salesman problem] is perhaps the best known NP problem. Given a set of cities, the goal is to find the shortest route that goes through all the cities. The only way to assure a solution is optimal, in general, is actually trying all the possible solutions. But &lt;a href=&#34;https://www.kaggle.com&#34; title=&#34;Kaggle&#34;&gt;Kaggle&lt;/a&gt; made it even harder. In the Kaggle problem Santa Claus has a lot of gifts (100,000) to give. Each give has a weight and a location to be sent to. The deers get tired because of the distance and the weight they carry. The sleight itself also has a weight and a load limit.&lt;/p&gt;
+&lt;p&gt;The idea is first to load the sleigh, then deliver the gifts, go back to the North Pole and repeat until all gifts are delivered. The second part is in itself an NP-hard problem, even harder than the TSP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The cost of going from A to B is not static&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It depends on the distance from A to B and the weight of the sleigh plus the gifts&amp;hellip; and the weight of the sleigh depends on the order of the previously visited cities.&lt;/p&gt;
+&lt;p&gt;Oh, and the first part - loading the sleigh - somehow resembles another NP-hard problem: &lt;a href=&#34;https://en.wikipedia.org/wiki/Knapsack_problem&#34; title=&#34;Knapsack problem&#34;&gt;the knapsack problem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The best approach I could think of involves reconstructing the trip backwards:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start from the North Pole, with an empty sleigh.&lt;/li&gt;
+&lt;li&gt;Choose the next city to visit and load the sleigh. If the sleigh is too loaded, it has to go back to the North Pole.&lt;/li&gt;
+&lt;li&gt;Repeat until all cities have been visited.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If that gives a solution that is O-A-B-O-C-D-O, the actual solution is that reversed (O-D-C-O-B-A-O): two trips, one with gifts AB and another with CD. I did it this way because doing that I can avoid taking the decision of what cities to visit in each trip in advance.&lt;/p&gt;
+&lt;p&gt;There is, however, one big caveat: there are 100,000 gifts. This means that operationally I cannot address the full problema at once. SO what I did was start with a logical solution: grouping gifts that are close. Once I have that I optimize de rout using ant colony optimization. And then more or less randomly satrt merging trips to see if I can find a better solution.&lt;/p&gt;
+&lt;p&gt;Currently, that method gets me a bad position in the contest but with 2% of the winner&amp;rsquo;s solution. Still two days to go.&lt;/p&gt;
+- https://frosklis.tk/posts/delivering-gifts-kaggle/ - </description>
+        </item>
+    
+    
+  </channel>
+</rss> 
