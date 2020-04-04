@@ -10,7 +10,7 @@ script:
 
 deploy:
   - provider: script
-    script: ./publish_scripts/publish_to_ghpages.sh
+    script: bash ./publish_scripts/publish_to_ghpages.sh
     skip_cleanup: true
     on:
       branch: master
