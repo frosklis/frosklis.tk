@@ -3,6 +3,7 @@ languageCode = "es-es"
 title = "Claudio Noguera"
 theme = "diary"
 GoogleAnalytics = "UA-267152-14"
+newContentEditor = "code"
 
 [params]
   author = "Claudio Noguera"
