@@ -1,7 +1,7 @@
 ---
 title: "De kmc2.tk a kmc2.es"
-date: 2020-04-06T14:41:09+02:00
-draft: true
+date: 2020-04-06T19:41:09+02:00
+draft: false
 ---
 
 [Mi otro blog, al igual que este, tiene un dominio tk](https://kmc2.tk). También está escrito en español, [así que he cambiado el dominio a .es](https://kmc2.es). Aprovecho para contar cómo están montados mis dos blogs.
