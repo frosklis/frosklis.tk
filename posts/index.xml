@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Claudio Noguera</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 19:41:09 +0200</lastBuildDate>
     
 	<atom:link href="https://frosklis.tk/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>De kmc2.tk a kmc2.es</title>
+      <link>https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/</link>
+      <pubDate>Mon, 06 Apr 2020 19:41:09 +0200</pubDate>
+      
+      <guid>https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/</guid>
+      <description>Mi otro blog, al igual que este, tiene un dominio tk. También está escrito en español, así que he cambiado el dominio a .es. Aprovecho para contar cómo están montados mis dos blogs.
+Empecé en esto del blogging usando wordpress, una plataforma estupenda presente en más del 20% de la web. Wordpress está muy bien, pagando un poco es muy fácil de usar y no tiene. Después, por aprender, lo migré a Google Appengine.</description>
+    </item>
     
     <item>
       <title>Mi primer paquete en Pypi</title>

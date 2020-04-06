@@ -5,9 +5,46 @@
     <description>Recent content on Claudio Noguera</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
-    <lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 19:41:09 +0200</lastBuildDate>
     
         <atom:link href="https://frosklis.tk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>De kmc2.tk a kmc2.es</title>
+        <link>https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/</link>
+        <pubDate>Mon, 06 Apr 2020 19:41:09 +0200</pubDate>
+        
+        <guid>https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/</guid>
+        <description>Claudio Noguera https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/ -&lt;p&gt;&lt;a href=&#34;https://kmc2.tk&#34;&gt;Mi otro blog, al igual que este, tiene un dominio tk&lt;/a&gt;. También está escrito en español, &lt;a href=&#34;https://kmc2.es&#34;&gt;así que he cambiado el dominio a .es&lt;/a&gt;. Aprovecho para contar cómo están montados mis dos blogs.&lt;/p&gt;
+&lt;p&gt;Empecé en esto del blogging usando &lt;a href=&#34;https://www.wordpress.org&#34;&gt;wordpress&lt;/a&gt;, una plataforma estupenda presente en más del 20% de la web. Wordpress está muy bien, pagando un poco es muy fácil de usar y no tiene. Después, por aprender, lo migré a &lt;a href=&#34;https://cloud.google.com/appengine&#34;&gt;Google Appengine&lt;/a&gt;. Luego a &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;. Y, espero que sea ya la última vez, a &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;El motivo de abandonar &lt;a href=&#34;https://www.wordpress.org&#34;&gt;wordpress&lt;/a&gt; es que quería más control. App engine de google fue un ejercicio muy bueno, porque aprendí mucho sobre APIs y sobre Google. De eso hace tiempo ya, pero me encantó usar el &lt;a href=&#34;https://cloud.google.com/datastore&#34;&gt;data store&lt;/a&gt; y en general la suite d Google Cloud, que para el uso que yo le daba era prácticamente gratuita, máxime cuando las fotos las tenía almacenadas en &lt;a href=&#34;https://www.flickr.com/photos/136165817@N06/&#34;&gt;flickr&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Un inciso, las fotos siempre han sido un problema: hay que tenerlas en muchos tamaños, si cambias el diseño de la web hay que regenerarlas. Hice bastantes scripts para hacer cosas de ese estilo. Es un poco más complicado además cuando la foto original está en RAW. Y no quiero pagar varias veces por almacenar las mismas fotos, ahora mismo las tengo en &lt;a href=&#34;https://lightroom.adobe.com&#34;&gt;lightroom&lt;/a&gt;, que no es nada barato pero me da acceso al software que ya tenía.&lt;/p&gt;
+&lt;p&gt;Con lo de las fotos y con el problema que suponía mantener una plataforma par blogs propia, busqué una alternativa que me permitiera jugar con la tecnología sólo si yo quería y descubrí &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;. Jekyll es un generador de páginas estático. La ventaja de generar las páginas de forma estática es que para alojar el blog vale cualquier cosa y la falta de dinamismo se puede suplir con Javascript y con servicios de terceros, por ejemplo &lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt; para comentarios.&lt;/p&gt;
+&lt;p&gt;Pero &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; me resultaba muy difícil de personalizar porque Ruby no lo domino bien, así que otra vez busqué una alternativa y encontré &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, que es lo que uso ahora.&lt;/p&gt;
+&lt;p&gt;En ese sentido, actualmente mis dos blogs tienen la misma configuración:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Están alojados en &lt;a href=&#34;https://github.com/&#34;&gt;github&lt;/a&gt; utilizando &lt;a href=&#34;https://pages.github.com&#34;&gt;github pages&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;La generación de los HTML no la hago yo si no que la tengo automatizada con &lt;a href=&#34;https://travis-ci.com/&#34;&gt;Travis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Utilizo &lt;a href=&#34;(https://www.cloudflare.com/)&#34;&gt;Cloudflare&lt;/a&gt; como CDN.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si el código de la web es abierto, todo lo anterior es gratuito. Lo único por lo que hay que pagar es el dominio. Y por eso usaba un dominio .tk, porque eran gratis. Ya no lo son, o sí lo son pero sólo durante un tiempo. Y salvo el precio, para todo lo demás los dominios .tk son malos: la propia web de gestión es horrorosa y de cara a posicionamiento en buscadores e imagen en general, no es un dominio bueno. No me importaría, eso sí, conocer la isla de &lt;a href=&#34;https://en.wikipedia.org/wiki/Tokelau&#34;&gt;Tokelau&lt;/a&gt; que da nombre al dominio, parece que están administradas por Estados Unidos.&lt;/p&gt;
+&lt;p&gt;Uno de los motivos de usar &lt;a href=&#34;(https://www.cloudflare.com/)&#34;&gt;Cloudflare&lt;/a&gt; es que realmente es muy malo el DNS. Pero además, y sobre todo cuando todo esto estaba alojado en AppEngine, tener un CDN quita tráfico del servidor y eso se traduce en menos dinero. Además la interfaz de Cloudflare es muy buena y se puede acceder por API, lo cual permite borrar el caché cada vez que se genera una versión nueva de la web.&lt;/p&gt;
+&lt;h1 id=&#34;cambiar-el-dominio&#34;&gt;Cambiar el dominio&lt;/h1&gt;
+&lt;p&gt;Dicho todo eso, ¿qué hay que hacer para cambiar el dominio?&lt;/p&gt;
+&lt;p&gt;Lo primero es esperar porque los cambios de dominio tienen que propagarse por los DNS del mundo. No es inmediato, tarda unas horas. &lt;a href=&#34;https://dnschecker.org/&#34;&gt;DNSchecker es una web que se puede usar para comprobarlo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Con el dominio comprado, para seguir teniéndolo en Cloudflare hay que añadirlo a través de su interfaz gráfica y cambiar en el proveedor los DNS para que apunten a estos dos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gabe.ns.cloudflare.com&lt;/li&gt;
+&lt;li&gt;dawn.ns.cloudflare.com&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cloudflare importa la configuración del dominio automáticamente. Además yo marco cosas como que se ofrezcan versiones minificadas del HTML, CSS y Javascript, proporciono un certificado autofirmado (en Cloudflare es encriptación &amp;ldquo;fulll&amp;rdquo;) y digo que siempre se use HTTPS.&lt;/p&gt;
+&lt;p&gt;Independientemente de que se use o no Cloudflare, hay que decir en el DNS que queremos que apunte a la ip donde esté el servidor correspondiente, &lt;a href=&#34;https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&#34;&gt;aquí se ven los de Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Después en github, desde el propio repositorio la ayuda dice que hay que cambiar el dominio de forma manual. En realidad no es necesario, sólo hay que cambiar el fichero CNAME en la rama gh-pages (o la rama desde la que se está cambiando el repositorio). Y como lo tengo todo automatizado, ya está.&lt;/p&gt;
+&lt;p&gt;Próximamente cambiaré el dominio de este blog también.&lt;/p&gt;
+- https://frosklis.tk/posts/de-kmc2-tk-a-kmc2-es/ - </description>
+        </item>
     
     
     
@@ -286,34 +323,6 @@ s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;c
 &lt;/ul&gt;
 &lt;p&gt;I want to use it also as a backup tool, so when I plug in my hard drive (the one I travel with) the important stuff gets automatically copied to the RPi hard drive. I do have Bittorrent Sync for that, but given the amount of files I have, it is quite slow.&lt;/p&gt;
 - https://frosklis.tk/posts/i-got-myself-a-raspberry-pi/ - </description>
-        </item>
-    
-    
-    
-        <item>
-        <title>Delivering gifts (Kaggle)</title>
-        <link>https://frosklis.tk/posts/delivering-gifts-kaggle/</link>
-        <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
-        
-        <guid>https://frosklis.tk/posts/delivering-gifts-kaggle/</guid>
-        <description>Claudio Noguera https://frosklis.tk/posts/delivering-gifts-kaggle/ -&lt;p&gt;There are a lot of things we take for granted. One of these things is logistics. We assume that when we have one order delivered it will arrive on time, but we often overlook how difficult it actually is. Well, there was a &lt;a href=&#34;https://www.kaggle.com/c/santas-stolen-sleigh&#34; title=&#34;Santa&#39;s stolen sleigh&#34;&gt;Kaggle competition just about that&lt;/a&gt;. And they just made it harder.&lt;/p&gt;
-&lt;p&gt;The [travelling salesman problem] is perhaps the best known NP problem. Given a set of cities, the goal is to find the shortest route that goes through all the cities. The only way to assure a solution is optimal, in general, is actually trying all the possible solutions. But &lt;a href=&#34;https://www.kaggle.com&#34; title=&#34;Kaggle&#34;&gt;Kaggle&lt;/a&gt; made it even harder. In the Kaggle problem Santa Claus has a lot of gifts (100,000) to give. Each give has a weight and a location to be sent to. The deers get tired because of the distance and the weight they carry. The sleight itself also has a weight and a load limit.&lt;/p&gt;
-&lt;p&gt;The idea is first to load the sleigh, then deliver the gifts, go back to the North Pole and repeat until all gifts are delivered. The second part is in itself an NP-hard problem, even harder than the TSP:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The cost of going from A to B is not static&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;It depends on the distance from A to B and the weight of the sleigh plus the gifts&amp;hellip; and the weight of the sleigh depends on the order of the previously visited cities.&lt;/p&gt;
-&lt;p&gt;Oh, and the first part - loading the sleigh - somehow resembles another NP-hard problem: &lt;a href=&#34;https://en.wikipedia.org/wiki/Knapsack_problem&#34; title=&#34;Knapsack problem&#34;&gt;the knapsack problem&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The best approach I could think of involves reconstructing the trip backwards:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Start from the North Pole, with an empty sleigh.&lt;/li&gt;
-&lt;li&gt;Choose the next city to visit and load the sleigh. If the sleigh is too loaded, it has to go back to the North Pole.&lt;/li&gt;
-&lt;li&gt;Repeat until all cities have been visited.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;If that gives a solution that is O-A-B-O-C-D-O, the actual solution is that reversed (O-D-C-O-B-A-O): two trips, one with gifts AB and another with CD. I did it this way because doing that I can avoid taking the decision of what cities to visit in each trip in advance.&lt;/p&gt;
-&lt;p&gt;There is, however, one big caveat: there are 100,000 gifts. This means that operationally I cannot address the full problema at once. SO what I did was start with a logical solution: grouping gifts that are close. Once I have that I optimize de rout using ant colony optimization. And then more or less randomly satrt merging trips to see if I can find a better solution.&lt;/p&gt;
-&lt;p&gt;Currently, that method gets me a bad position in the contest but with 2% of the winner&amp;rsquo;s solution. Still two days to go.&lt;/p&gt;
-- https://frosklis.tk/posts/delivering-gifts-kaggle/ - </description>
         </item>
     
     
