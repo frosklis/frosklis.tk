@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Trips on Claudio Noguera</title>
-    <link>https://frosklis.tk/categories/trips/</link>
-    <description>Recent content in Trips on Claudio Noguera</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-es</language>
-    <lastBuildDate>Mon, 01 Jun 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://frosklis.tk/categories/trips/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Indonesia</title>
-      <link>https://frosklis.tk/posts/indonesia/</link>
-      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://frosklis.tk/posts/indonesia/</guid>
-      <description>My next big trip will be to Indonesia, where I will go with my girlfriend (you will be able to follow the trip in our blog. It will be the farthest I’ve ever been from my home country - Spain. Going far away is a big factor on making a trip memorable. This will be some 12,000 km away.
-Indonesia is very different to any other country I have been to, some firsts will happen there .</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Trips on Claudio Noguera</title><link>https://frosklis.tk/categories/trips/</link><description>Recent content in Trips on Claudio Noguera</description><generator>Hugo -- gohugo.io</generator><language>es-es</language><lastBuildDate>Mon, 01 Jun 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://frosklis.tk/categories/trips/index.xml" rel="self" type="application/rss+xml"/><item><title>Indonesia</title><link>https://frosklis.tk/posts/indonesia/</link><pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate><guid>https://frosklis.tk/posts/indonesia/</guid><description>My next big trip will be to Indonesia, where I will go with my girlfriend (you will be able to follow the trip in our blog. It will be the farthest I’ve ever been from my home country - Spain. Going far away is a big factor on making a trip memorable. This will be some 12,000 km away.
+Indonesia is very different to any other country I have been to, some firsts will happen there .</description></item></channel></rss>

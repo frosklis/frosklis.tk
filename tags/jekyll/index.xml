@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Jekyll on Claudio Noguera</title>
-    <link>https://frosklis.tk/tags/jekyll/</link>
-    <description>Recent content in Jekyll on Claudio Noguera</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-es</language>
-    <lastBuildDate>Mon, 08 Dec 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://frosklis.tk/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Jekyll is so nice!</title>
-      <link>https://frosklis.tk/posts/jekyll-is-so-nice/</link>
-      <pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://frosklis.tk/posts/jekyll-is-so-nice/</guid>
-      <description>I have moved my blog from a custom based solution to jekyll. What I was using was appengine and before that I had used wordpress.
-Wordpress doesn&amp;rsquo;t give you too much control. Of course you can configure it but it is so hard to do, I find PHP a nightmare and Wordpress&amp;rsquo; API difficult to interact with. It was a pain doing plugins. It has one big advange though: it is easy to use for any user.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jekyll on Claudio Noguera</title><link>https://frosklis.tk/tags/jekyll/</link><description>Recent content in Jekyll on Claudio Noguera</description><generator>Hugo -- gohugo.io</generator><language>es-es</language><lastBuildDate>Mon, 08 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://frosklis.tk/tags/jekyll/index.xml" rel="self" type="application/rss+xml"/><item><title>Jekyll is so nice!</title><link>https://frosklis.tk/posts/jekyll-is-so-nice/</link><pubDate>Mon, 08 Dec 2014 00:00:00 +0000</pubDate><guid>https://frosklis.tk/posts/jekyll-is-so-nice/</guid><description>I have moved my blog from a custom based solution to jekyll. What I was using was appengine and before that I had used wordpress.
+Wordpress doesn&amp;rsquo;t give you too much control. Of course you can configure it but it is so hard to do, I find PHP a nightmare and Wordpress&amp;rsquo; API difficult to interact with. It was a pain doing plugins. It has one big advange though: it is easy to use for any user.</description></item></channel></rss>

@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>python on Claudio Noguera</title>
-    <link>https://frosklis.tk/tags/python/</link>
-    <description>Recent content in python on Claudio Noguera</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-es</language>
-    <lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://frosklis.tk/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Mi primer paquete en Pypi</title>
-      <link>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</link>
-      <pubDate>Sat, 04 Apr 2020 00:33:00 +0200</pubDate>
-      
-      <guid>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</guid>
-      <description>He hecho un paquete que he llamado cnml. Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos es open source es mucho más fácil todo.
-Todo empieza por tener un código bien estructurado que se pueda instalar con setuptools y con crearse una cuenta en pypi.org. El único requisito es que el nombre del paquete no exista en pypi.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on Claudio Noguera</title><link>https://frosklis.tk/tags/python/</link><description>Recent content in python on Claudio Noguera</description><generator>Hugo -- gohugo.io</generator><language>es-es</language><lastBuildDate>Sat, 04 Apr 2020 00:33:00 +0200</lastBuildDate><atom:link href="https://frosklis.tk/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Mi primer paquete en Pypi</title><link>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</link><pubDate>Sat, 04 Apr 2020 00:33:00 +0200</pubDate><guid>https://frosklis.tk/posts/mi-primer-paquete-en-pypi/</guid><description>He hecho un paquete que he llamado cnml. Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos es open source es mucho más fácil todo.
+Todo empieza por tener un código bien estructurado que se pueda instalar con setuptools y con crearse una cuenta en pypi.org. El único requisito es que el nombre del paquete no exista en pypi.</description></item></channel></rss>

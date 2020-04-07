@@ -1,281 +1,53 @@
-<!DOCTYPE html>
-<html><head>
-<title>Tic-tac-toe dynamic programming</title>
+<!doctype html><html><head><title>Tic-tac-toe dynamic programming</title><meta charset=utf-8><meta name=X-UA-Compatible content="IE=edge"><meta name=google-site-verification content><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name=viewport><meta content="telephone=no" name=format-detection><meta name=description content><meta name=renderer content="webkit"><meta name=theme-color content="#ffffff"><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-267152-14','auto');ga('send','pageview');}</script><script src=/vendor/js/jquery.min.js></script><script src=/vendor/js/popper.min.js></script><script src=/vendor/js/bootstrap.min.js></script><script src=/vendor/js/smooth-scroll.polyfills.min.js></script><link type=text/css rel=stylesheet href=/vendor/css/bootstrap.min.css><script src=/vendor/js/vue.min.js></script><link rel=icon href=/favicon.png><link rel=stylesheet href=https://frosklis.tk/scss/journal.min.5c667e74038e21ddbb9024b67930f8544e02af62491281cf73fdb817eec2947e.css integrity="sha256-XGZ+dAOOId27kCS2eTD4VE4Cr2JJEoHPc/24F+7ClH4=" media=screen><script src=https://frosklis.tk//js/loadCSS.js></script><script src=https://frosklis.tk//js/table.js></script><script src=https://frosklis.tk//js/toc.js></script><script>loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");</script></head><body><div id=app><div ref=sideContainer class=side-container><a class="a-block nav-head false" href=https://frosklis.tk/><div class=nav-title>Claudio Noguera</div></a><div class=nav-link-list></div><div class=nav-footer>Hugo Theme <a href=https://github.com/amazingrise/hugo-theme-diary>Diary</a> by <a href=https://amazingrise.net>Rise</a><br>Ported from <a href=https://mak1t0.cc/ target=_blank rel="noreferrer noopener">Makito</a>'s <a href=https://github.com/SumiMakito/hexo-theme-journal/ target=_blank rel="noreferrer noopener">Journal.</a><br><br>&copy;
+2020 Claudio Noguera</div></div><div ref=extraContainer class=extra-container><div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }"></div><div class=pagination><a id=globalBackToTop class="pagination-action animated-visibility" href=#top :class="{ invisible: scrollY == 0 }"><i class="material-icons pagination-action-icon">keyboard_arrow_up</i></a></div></div><div class=single-column-drawer-container ref=drawer v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }"><div class=drawer-content><div class=drawer-menu><div class=toc></div></div></div></div><transition name=fade><div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if=isDrawerOpen v-on:click=toggleDrawer></div></transition><nav ref=navBar class="navbar sticky-top navbar-light single-column-nav-container"><div ref=navBackground class=nav-background></div><div class="container container-narrow nav-content"><button id=nav_dropdown_btn class=nav-dropdown-toggle type=button v-on:click=toggleDrawer>
+<i class=material-icons>menu</i></button>
+<a ref=navTitle class=navbar-brand href=https://frosklis.tk/>Claudio Noguera</a></div></nav><div class=single-column-header-container ref=pageHead v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }"><a href=https://frosklis.tk/><div class=single-column-header-title>Claudio Noguera</div></a></div><div id=content><div ref=streamContainer class=stream-container><div class="post-list-container post-list-container-shadow"><div class=post><div class=post-head-wrapper-text-only style="background-image:url('/')"><div class=post-title>Tic-tac-toe dynamic programming<div class=post-meta><time itemprop=datePublished>2016-06-24 00:00</time>
+<i class=material-icons>label</i>
+<a href=/tags/reinforcement-learning>reinforcement learning</a>
+&nbsp;
+<a href=/tags/dynamic-programming>dynamic programming</a>
+&nbsp;</div></div></div><div class=post-body-wrapper><div class=post-body><p>This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using <a href=https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html>&ldquo;Reinforcement learning&rdquo;, by Richard Sutton and Andrew Barto</a> as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.</p><p>As with everything, first steps are humble: the tic-tac-toe game. The book does not provide an implementation. I found however <a href=https://www.xanvong.com/posts/blog/tic-tac-toe-dp-and-memo>this nice implementation</a> using dynamic programming:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>build_best_responses</span>(self, board<span style=color:#f92672>=</span>None, player<span style=color:#f92672>=</span>None):
+    <span style=color:#e6db74>&#34;&#34;&#34;Recursively compute best responses for all subgames of current board.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>    Call with no arguments to build the entire best_responses dict.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>    This adds a key to best_responses for each possible board configuration
+</span><span style=color:#e6db74>    that could follow from board.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>    player = 1 for X, -1 for O. This is the current player, i.e. the one
+</span><span style=color:#e6db74>    who goes next given the current board.
+</span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
 
-<meta charset="utf-8">
-<meta name="X-UA-Compatible" content="IE=edge">
-<meta name="google-site-verification" content="">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-<meta content="telephone=no" name="format-detection">
-<meta name="description" content="">
-<meta name="renderer" content="webkit">
-<meta name="theme-color" content="#ffffff">
+    <span style=color:#75715e># Initialize</span>
+    <span style=color:#66d9ef>if</span> board <span style=color:#f92672>is</span> None:
+        board <span style=color:#f92672>=</span> (<span style=color:#ae81ff>0</span>,) <span style=color:#f92672>*</span> self<span style=color:#f92672>.</span>SIZE
+        player <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
 
+    <span style=color:#66d9ef>if</span> board <span style=color:#f92672>in</span> self<span style=color:#f92672>.</span>best_responses:
+        <span style=color:#66d9ef>return</span>
 
+    win <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>check_win(board, player)
+    <span style=color:#75715e># If win/loss/draw has been determined, the game is over.</span>
+    <span style=color:#66d9ef>if</span> win <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> None:
+        self<span style=color:#f92672>.</span>best_responses[board] <span style=color:#f92672>=</span> (None, win) <span style=color:#75715e># None =&gt; no move needed</span>
+        <span style=color:#66d9ef>return</span>
 
+    <span style=color:#75715e># If we don&#39;t know the best response yet, compute it.</span>
+    best_value <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>
+    <span style=color:#66d9ef>for</span> i, val <span style=color:#f92672>in</span> enumerate(board):
+        <span style=color:#66d9ef>if</span> val <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+            <span style=color:#75715e># create new tuple with player&#39;s move in ith slot</span>
+            board2 <span style=color:#f92672>=</span> board[:i] <span style=color:#f92672>+</span> (player,) <span style=color:#f92672>+</span> board[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:]
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-267152-14', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-
-<script src="/vendor/js/jquery.min.js" ></script>
-<script src="/vendor/js/popper.min.js" ></script>
-<script src="/vendor/js/bootstrap.min.js" ></script>
-<script src="/vendor/js/smooth-scroll.polyfills.min.js" ></script>
-<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<script src="/vendor/js/vue.min.js" ></script>
-
-
-<link rel="icon" href="/favicon.png">
-
-
-
-
-<link rel="stylesheet" href="https://frosklis.tk/scss/journal.min.5c667e74038e21ddbb9024b67930f8544e02af62491281cf73fdb817eec2947e.css" integrity="sha256-XGZ&#43;dAOOId27kCS2eTD4VE4Cr2JJEoHPc/24F&#43;7ClH4=" media="screen">
-
-<script src="https://frosklis.tk//js/loadCSS.js"></script>
-<script src="https://frosklis.tk//js/table.js"></script>
-
-
-<script src="https://frosklis.tk//js/toc.js"></script>
-
-
-<script>
-    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Noto+Serif+SC|Material+Icons");
-</script>
-
-
-
-
-
-
-</head><body>
-    	<div id="app"><div ref="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://frosklis.tk/">
-    
-        <div class="nav-title">
-            Claudio Noguera
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	2020 Claudio Noguera
-	
-    </div>
-    
-</div><div ref="extraContainer" class="extra-container">
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-    </div>
-</div><div class="single-column-drawer-container" ref="drawer"
-     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
-    <div class="drawer-content">
-        <div class="drawer-menu">
-            
-            
-            
-            <div class="toc">
-
-
-</div>
-            
-        </div>
-    </div>
-</div>
-<transition name="fade">
-    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
-</transition>
-<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
-    <div ref="navBackground" class="nav-background"></div>
-    <div class="container container-narrow nav-content">
-        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
-            <i class="material-icons">
-                menu
-            </i>
-        </button>
-        <a ref="navTitle" class="navbar-brand" href="https://frosklis.tk/">
-            Claudio Noguera
-        </a>
-    </div>
-</nav>
-<div class="single-column-header-container" ref="pageHead"
-     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="https://frosklis.tk/">
-        <div class="single-column-header-title">Claudio Noguera</div>
-        
-
-    </a>
-</div>
-            <div id="content">
-<div ref="streamContainer" class="stream-container">
-    <div class="post-list-container post-list-container-shadow">
-        <div class="post">
-            
-            
-            
-
-            <div class="post-head-wrapper-text-only"
-                 style="background-image: url('/')">
-                <div class="post-title">
-                    Tic-tac-toe dynamic programming
-                    
-                    <div class="post-meta">
-                        
-                        <time itemprop="datePublished">
-                            2016-06-24 00:00
-                        </time>
-                        
-
-                        
-
-                        
-                            <i class="material-icons" style="">label</i>
-                            
-                                <a href="/tags/reinforcement-learning">reinforcement learning</a>
-                                &nbsp;
-                            
-                                <a href="/tags/dynamic-programming">dynamic programming</a>
-                                &nbsp;
-                            
-                        
-                    </div>
-                </div>
-            </div>
-            
-            <div class="post-body-wrapper">
-                <div class="post-body">
-                    <p>This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using <a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">&ldquo;Reinforcement learning&rdquo;, by Richard Sutton and Andrew Barto</a> as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.</p>
-<p>As with everything, first steps are humble: the tic-tac-toe game. The book does not provide an implementation. I found however <a href="https://www.xanvong.com/posts/blog/tic-tac-toe-dp-and-memo">this nice implementation</a> using dynamic programming:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_best_responses</span>(self, board<span style="color:#f92672">=</span>None, player<span style="color:#f92672">=</span>None):
-    <span style="color:#e6db74">&#34;&#34;&#34;Recursively compute best responses for all subgames of current board.
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">    Call with no arguments to build the entire best_responses dict.
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">    This adds a key to best_responses for each possible board configuration
-</span><span style="color:#e6db74">    that could follow from board.
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">    player = 1 for X, -1 for O. This is the current player, i.e. the one
-</span><span style="color:#e6db74">    who goes next given the current board.
-</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-
-    <span style="color:#75715e"># Initialize</span>
-    <span style="color:#66d9ef">if</span> board <span style="color:#f92672">is</span> None:
-        board <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>,) <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>SIZE
-        player <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-
-    <span style="color:#66d9ef">if</span> board <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>best_responses:
-        <span style="color:#66d9ef">return</span>
-
-    win <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>check_win(board, player)
-    <span style="color:#75715e"># If win/loss/draw has been determined, the game is over.</span>
-    <span style="color:#66d9ef">if</span> win <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
-        self<span style="color:#f92672">.</span>best_responses[board] <span style="color:#f92672">=</span> (None, win) <span style="color:#75715e"># None =&gt; no move needed</span>
-        <span style="color:#66d9ef">return</span>
-
-    <span style="color:#75715e"># If we don&#39;t know the best response yet, compute it.</span>
-    best_value <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
-    <span style="color:#66d9ef">for</span> i, val <span style="color:#f92672">in</span> enumerate(board):
-        <span style="color:#66d9ef">if</span> val <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-            <span style="color:#75715e"># create new tuple with player&#39;s move in ith slot</span>
-            board2 <span style="color:#f92672">=</span> board[:i] <span style="color:#f92672">+</span> (player,) <span style="color:#f92672">+</span> board[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]
-
-            <span style="color:#75715e"># If board2 is already in best_responses, this does nothing.</span>
-            <span style="color:#75715e"># Otherwise, it ensures board2 is added to best_responses.</span>
-            self<span style="color:#f92672">.</span>build_best_responses(board2, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> player)
-            <span style="color:#75715e"># The player&#39;s value given board2 is the reverse of the next</span>
-            <span style="color:#75715e"># player&#39;s value</span>
-            value <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>best_responses[board2][<span style="color:#ae81ff">1</span>]
-            <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&gt;</span> best_value:
-                best_value, best_move <span style="color:#f92672">=</span> value, i
-    self<span style="color:#f92672">.</span>best_responses[board] <span style="color:#f92672">=</span> (best_move, best_value)
-</code></pre></div><p>Is this reinforcement learning? What this code does is for any board composition it computes the value of the board, and it starts with the empty board. So effectively it is enumerating all the possible states, something that can be done for simple games like tic-tac-toe.</p>
-<p>Being able to evaluate all posible states makes it possible to evaluate the game in a deterministic way, which makes finding the best policy easy. The difficulty of reinforcement learning, I guess, is determining this &ldquo;board value&rdquo;, it will not always be simple.</p>
-
-                    
-                    <HR width="100%" id="EOF">
-                    <p style="color:#777;">Last modified on 2016-06-24</p>
-                    
-                </div>
-            </div>
-            
-            
-            <nav class="post-pagination">
-
-                
-                <a class="newer-posts" href="https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/">
-                    Next<br>Distance between two random points in a square
-                </a>
-                
-                
-                
-                <a class="older-posts" href="https://frosklis.tk/posts/to-africa-or-not-to-africa/">
-                    Previous<br>To Africa or not to Africa
-                </a>
-                
-            </nav>
-            <div class="post-comment-wrapper">
-                
-
-
-
-
-
-
-            </div>
-        </div>
-    </div>
-</div>
-
-            </div><div id="single-column-footer">
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://amazingrise.net">Rise</a>
-<br>
-Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	2020 Claudio Noguera
-	</div>
-    	</div>
-    <script src="https://frosklis.tk//js/journal.js"></script>
-    </body>
-</html>
+            <span style=color:#75715e># If board2 is already in best_responses, this does nothing.</span>
+            <span style=color:#75715e># Otherwise, it ensures board2 is added to best_responses.</span>
+            self<span style=color:#f92672>.</span>build_best_responses(board2, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>*</span> player)
+            <span style=color:#75715e># The player&#39;s value given board2 is the reverse of the next</span>
+            <span style=color:#75715e># player&#39;s value</span>
+            value <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>*</span> self<span style=color:#f92672>.</span>best_responses[board2][<span style=color:#ae81ff>1</span>]
+            <span style=color:#66d9ef>if</span> value <span style=color:#f92672>&gt;</span> best_value:
+                best_value, best_move <span style=color:#f92672>=</span> value, i
+    self<span style=color:#f92672>.</span>best_responses[board] <span style=color:#f92672>=</span> (best_move, best_value)
+</code></pre></div><p>Is this reinforcement learning? What this code does is for any board composition it computes the value of the board, and it starts with the empty board. So effectively it is enumerating all the possible states, something that can be done for simple games like tic-tac-toe.</p><p>Being able to evaluate all posible states makes it possible to evaluate the game in a deterministic way, which makes finding the best policy easy. The difficulty of reinforcement learning, I guess, is determining this &ldquo;board value&rdquo;, it will not always be simple.</p><hr width=100% id=EOF><p style=color:#777>Last modified on 2016-06-24</p></div></div><nav class=post-pagination><a class=newer-posts href=https://frosklis.tk/posts/distance-between-two-random-points-in-a-square/>Next<br>Distance between two random points in a square</a>
+<a class=older-posts href=https://frosklis.tk/posts/to-africa-or-not-to-africa/>Previous<br>To Africa or not to Africa</a></nav><div class=post-comment-wrapper></div></div></div></div></div><div id=single-column-footer>Hugo Theme <a href=https://github.com/amazingrise/hugo-theme-diary>Diary</a> by <a href=https://amazingrise.net>Rise</a><br>Ported from <a href=https://mak1t0.cc/ target=_blank rel="noreferrer noopener">Makito</a>'s <a href=https://github.com/SumiMakito/hexo-theme-journal/ target=_blank rel="noreferrer noopener">Journal.</a><br><br>&copy;
+2020 Claudio Noguera</div></div><script src=https://frosklis.tk//js/journal.js></script></body></html>

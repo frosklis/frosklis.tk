@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>dynamic programming on Claudio Noguera</title>
-    <link>https://frosklis.tk/tags/dynamic-programming/</link>
-    <description>Recent content in dynamic programming on Claudio Noguera</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-es</language>
-    <lastBuildDate>Fri, 24 Jun 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://frosklis.tk/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Tic-tac-toe dynamic programming</title>
-      <link>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</link>
-      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</guid>
-      <description>This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using &amp;ldquo;Reinforcement learning&amp;rdquo;, by Richard Sutton and Andrew Barto as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.
-As with everything, first steps are humble: the tic-tac-toe game.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dynamic programming on Claudio Noguera</title><link>https://frosklis.tk/tags/dynamic-programming/</link><description>Recent content in dynamic programming on Claudio Noguera</description><generator>Hugo -- gohugo.io</generator><language>es-es</language><lastBuildDate>Fri, 24 Jun 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://frosklis.tk/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Tic-tac-toe dynamic programming</title><link>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</link><pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate><guid>https://frosklis.tk/posts/tic-tac-toe-dynamic-programming/</guid><description>This is the first of many articles regarding reinforcement learning, which is something I want to master. I will try to do it using &amp;ldquo;Reinforcement learning&amp;rdquo;, by Richard Sutton and Andrew Barto as a reference. The objective of a reinforcement learning system is building a program that learns rather than the much more usual, the human learns and teaches the computer the result of its learning.
+As with everything, first steps are humble: the tic-tac-toe game.</description></item></channel></rss>
