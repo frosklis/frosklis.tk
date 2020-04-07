@@ -1,9 +1,11 @@
 baseURL = "https://frosklis.tk/"
 languageCode = "es-es"
 title = "Claudio Noguera"
-theme = "diary"
+# theme = "diary"
+theme = "hugo-frosklis"
 GoogleAnalytics = "UA-267152-14"
 newContentEditor = "code"
+disqus = "frosklis"
 
 [params]
   author = "Claudio Noguera"
