@@ -20,7 +20,7 @@ En el mundo open source el más famoso es [Jenkins](https://jenkins.io/). Los pr
 
 Usando travis, lo único que hay que hacer es configurar el script .travis.yml que tiene que estar en la raíz del repositorio. [El mío es este](https://github.com/frosklis/cn-machine-learning/blob/master/.travis.yml) y hoy (4 de abril de 2020) tiene esta pinta:
 
-```
+```yaml
 language: python
 script: pytest --cov=cnml
 after_success: bash <(curl -s https://codecov.io/bash)
