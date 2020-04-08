@@ -5,7 +5,7 @@ tags: [pypy, python, devops]
 draft: false
 ---
 
-He hecho [un paquete que he llamado cnml](https://github.com/frosklis/cn-machine-learning). Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos es open source es mucho más fácil todo.
+He hecho [un paquete que he llamado cnml](https://github.com/frosklis/cn-machine-learning). Y lo estoy haciendo con fines autoformativos porque en los proyectos en los que trabajo nunca hago yo solo el trabajo de principio a fin. Mi conclusión es que cuando los proyectos son de código abierto es mucho más fácil todo.
 
 Todo empieza por tener un [código bien estructurado que se pueda instalar con setuptools](https://packaging.python.org/tutorials/packaging-projects/) y con crearse una cuenta en [pypi.org](https://pypi.org/). El único requisito es que el nombre del paquete no exista en pypi. Hecho eso, el paquete se puede subir por línea de comandos.
 
