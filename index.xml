@@ -31,17 +31,17 @@ twine upload dist&lt;span style="color:#ae81ff">\*&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Existen formas de automatizar lo anterior para que no sea necesario introducir el nombre de usuario y contraseña cada vez. Pero puestos a hacer eso, es mejor todavía hacer el ciclo completo de devops. Las prácticas de integración continua han mejorado mucho en los últimos años en cuanto a facilidad de uso. Ahora cualquiera lo puede hacer y contribuyen a que el código que tenemos sea mantenible. El desencadenante de todo es un commit. Se puede configurar github (o cualquier repositorio git) para que se desencaden acciones cada vez que ocurre algo. De hecho todos los grandes (github, gitlab, bitbucket y los internos de las plataformas en la nube de Amazon, Google y Microsoft) tienen APIs y se pueden conectar a terceros.&lt;/p>
 &lt;p>En el mundo open source el más famoso es &lt;a href="https://jenkins.io/">Jenkins&lt;/a>. Los proveedores cloud tienen los suyos, Atlassian tiene el suyo. Lo que no me gusta de Jenkins es que tiene la barrera de entrada de que hace falta una infraestructura donde desplegarlo y hacerlo funcionar. Por eso yo he utilizado &lt;a href="https://travis-ci.com/">Travis&lt;/a> que funciona como servicio y es gratis para proyectos opensource. Podía haber utilizado también &lt;a href="https://circleci.com/">Circle CI&lt;/a>.&lt;/p>
 &lt;p>Usando travis, lo único que hay que hacer es configurar el script .travis.yml que tiene que estar en la raíz del repositorio. &lt;a href="https://github.com/frosklis/cn-machine-learning/blob/master/.travis.yml">El mío es este&lt;/a> y hoy (4 de abril de 2020) tiene esta pinta:&lt;/p>
-&lt;pre>&lt;code>language: python
-script: pytest --cov=cnml
-after_success: bash &amp;lt;(curl -s https://codecov.io/bash)
-deploy:
-on:
-tags: true
-provider: pypi
-user: __token__
-password:
-secure: lUDdfS0w/P3YF7QospZmVHo0YWuFvuIwuteIQjzUuuJbOlA5K00iNHvuSp9cLx89pFL+dWO61ar2qYechdT1UdtKlvEZpbthgMACMkftY8F+LBUUs95DIph/1arUabr6ZOVyuc6kuc3YvaHMK78FjEB4J5YftRznp3LVLJPpWIjL1oOpPCbI4ETjxA+SvLqQGerKfTPUQWogjB/iDjLOczdWY9y6haHaF43svaFy7LWL2fxTC95PKhXANjGlME0mociZI1aIykZbOk58/WOLew4De7jCeN/sCathBKpq4cAV222RoAV73Rx9FWucS2U4XeRFGMUA8Bvv3T0gCoIzTN1C+wmN7g0SJBqVJkdSf/eN/fPo4sw8Fu0Ohs0iJr1f74h2z6EQeuKdMER5sxEUP1t1HWj8elQ1JwQT1h4AjXJSccGFJcYdvaP4SWr2+2x4uayPbg32R+5iQu0y7WMDtEH5KsNgJ9GBJ7YxLnLImx2UtkF6Iem/AYTYcP2PikW2RbOZM1A4DWakYvMAzegyWj8yjOp65tWfp2ntQ6LzjAJbauzBnVmGkoBAS2zQPv0kbiYoeE0pdQKaHqAl9tU0EjotN/n0DGKrEn0zay+GbMrL0uyDSwCkqHpxdBW5hCVJAzLQg3EJy8lVNyDp3EYq3Bl/bPqjRmWxJC6iLMXo4Z4=
-&lt;/code>&lt;/pre>&lt;p>Hace más cosas que simplemente generar el paquete:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#66d9ef">language&lt;/span>: python
+&lt;span style="color:#66d9ef">script&lt;/span>: pytest --cov=cnml
+&lt;span style="color:#66d9ef">after_success&lt;/span>: bash &amp;lt;(curl -s https://codecov.io/bash)
+&lt;span style="color:#66d9ef">deploy&lt;/span>:
+&lt;span style="color:#66d9ef">on&lt;/span>:
+&lt;span style="color:#66d9ef">tags&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;span style="color:#66d9ef">provider&lt;/span>: pypi
+&lt;span style="color:#66d9ef">user&lt;/span>: __token__
+&lt;span style="color:#66d9ef">password&lt;/span>:
+&lt;span style="color:#66d9ef">secure&lt;/span>: lUDdfS0w/P3YF7QospZmVHo0YWuFvuIwuteIQjzUuuJbOlA5K00iNHvuSp9cLx89pFL+dWO61ar2qYechdT1UdtKlvEZpbthgMACMkftY8F+LBUUs95DIph/1arUabr6ZOVyuc6kuc3YvaHMK78FjEB4J5YftRznp3LVLJPpWIjL1oOpPCbI4ETjxA+SvLqQGerKfTPUQWogjB/iDjLOczdWY9y6haHaF43svaFy7LWL2fxTC95PKhXANjGlME0mociZI1aIykZbOk58/WOLew4De7jCeN/sCathBKpq4cAV222RoAV73Rx9FWucS2U4XeRFGMUA8Bvv3T0gCoIzTN1C+wmN7g0SJBqVJkdSf/eN/fPo4sw8Fu0Ohs0iJr1f74h2z6EQeuKdMER5sxEUP1t1HWj8elQ1JwQT1h4AjXJSccGFJcYdvaP4SWr2+2x4uayPbg32R+5iQu0y7WMDtEH5KsNgJ9GBJ7YxLnLImx2UtkF6Iem/AYTYcP2PikW2RbOZM1A4DWakYvMAzegyWj8yjOp65tWfp2ntQ6LzjAJbauzBnVmGkoBAS2zQPv0kbiYoeE0pdQKaHqAl9tU0EjotN/n0DGKrEn0zay+GbMrL0uyDSwCkqHpxdBW5hCVJAzLQg3EJy8lVNyDp3EYq3Bl/bPqjRmWxJC6iLMXo4Z4=
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hace más cosas que simplemente generar el paquete:&lt;/p>
 &lt;ol>
 &lt;li>genera el paquete&lt;/li>
 &lt;li>ejecuta los tests con cobertura&lt;/li>
