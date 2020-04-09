@@ -2,7 +2,7 @@
 draft: false
 date: 2014-11-05
 title: Movistar DNS
-tags: DNS
+tags: [DNS]
 ---
 I had been suffering connection issues lately which made the internet feel slow. Frustrating, as I have a 100 Mbps FTTH connection. The problem is the DNS.
 

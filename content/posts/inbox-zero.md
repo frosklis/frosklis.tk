@@ -3,7 +3,7 @@ draft: false
 date: 2015-11-21
 layout: post
 title: Inbox zero
-tags: productivity
+tags: [productivity]
 ---
 
 Despite a lot of hype saying email is broken, I just do not agree. I take pride in going through every email that comes to me. I do the same with the RSS subscriptions.

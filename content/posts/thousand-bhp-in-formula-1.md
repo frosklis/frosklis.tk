@@ -3,7 +3,7 @@ draft: false
 layout: post
 title: Thousand BHP in Formula 1?
 categories: Random calculations
-tags: formula 1
+tags: [formula 1]
 date: 2015-03-27
 ---
 

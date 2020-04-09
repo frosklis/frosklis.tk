@@ -2,7 +2,7 @@
 title: "Usando Git"
 date: 2020-03-27T19:30:22+01:00
 draft: false
-tags: git
+tags: [git]
 ---
 
 Además de los comandos básicos de git, cuando se trabaja con más personas se hace necesario no sólo el que todos los que trabajan en el equipo usen git sino acordar también la manera en la que se va a usar el repositorio. Esto es definir una manera de llamar las ramas y una política de ramificación (qué ramas se pueden crear a partir de otras) y qué tiene que pasar para poder integrar unas ramas en otras (```git merge```).

@@ -2,7 +2,7 @@
 draft: false
 layout: post
 title: P2P lending
-tags: money
+tags: [money]
 date: 2014-11-26
 ---
 I like my savings to produce more money. At least I try with, currently, bad results. However I do follow the golden rule of not risking money you really need. I have explored a lot of options in the past such as shares, investment funds or even derivatives such as warrants and CFDs. Overall, I have lost money.
