@@ -1,0 +1,75 @@
+// https://www.kevinpowell.co/article/using-my-colors/
+// https://visme.co/blog/color-combinations/
+
+$primary-color: #e69e1a;
+$white: #fff;
+$black: #444a51;
+
+$lighten: 5;
+$darken: 25;
+
+$colors: (
+    primary: #ec4d38,
+    light: #f8f8f2,
+    dark: #272822,
+    accent1: #275fd8,
+    accent2: #34fc98,
+);
+
+@function clr($base) {
+    $color: map-get($colors, $base);
+    @return $color;
+}
+
+.primary { color: clr(primary)}
+.light { color: clr(light)}
+.dark { color: clr(dark)}
+.accent1 { color: clr(accent1)}
+.accent2 { color: clr(accent2)}
+
+
+
+
+body {
+    // background-color: clr(neutral, light);
+    color: $black;
+}
+
+article {
+    header {
+        h1 {
+            //color: clr(primary);
+        }
+    }
+}
+
+a {
+    &:link,
+    &:visited {
+        text-decoration: none;
+        color: clr(accent1);
+    }
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: clr(primary);
+    }
+
+    #content & > * {
+        color: $black;
+    }
+    .sidebar &, .copyright & {
+        color: inherit;
+        &:hover,
+        &:active {
+            text-decoration: none;
+            background-color: inherit;
+            color: black;
+        }
+    }
+}
+
+code {
+    word-break: break-word;
+    white-space: pre-wrap;
+}

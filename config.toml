@@ -2,7 +2,9 @@ baseURL = "https://frosklis.tk/"
 languageCode = "es-es"
 title = "Claudio Noguera"
 # theme = "diary"
-theme = "hugo-frosklis"
+# theme = "hugo-frosklis"
+theme = "scratch"
+# theme = "hugo-theme"
 GoogleAnalytics = "UA-267152-14"
 newContentEditor = "code"
 disqus = "frosklis"
@@ -11,3 +13,19 @@ disqus = "frosklis"
   author = "Claudio Noguera"
   description = "Sitio web de Claudio Noguera"
   favicon = "/favicon.png"
+  github = "frosklis"
+  linkedin = "claudionoguera"
+  twitter = "claudio1985"
+  # email = "claudio.noguera@gmail.com"
+
+
+# https://blog.atj.me/2017/10/generate-yearly-and-monthly-archive-pages-with-hugo-sections/
+# prevent hugo from creating folders/indexes for each section
+disableKinds = ["section"]
+
+[permalinks]
+    # :title is used if :slug is not defined in post frontmatter
+    posts = "/:year/:month/:slug/"
+    archm = "/:year/:month/"
+    archy = "/:year/"
+
