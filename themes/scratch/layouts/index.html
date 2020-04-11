@@ -6,7 +6,7 @@
   <div class="article-list">
 
     {{ range first 10 .Site.RegularPages }}
-    <a href="{{.Permalink}}" class="a-block">
+    <a href="{{.Permalink}}" class="a-block" aria-label="{{.Title}}">
     <article>
       {{ .Scratch.Set "links" false }}
       {{ partial "article-header.html" . }}
