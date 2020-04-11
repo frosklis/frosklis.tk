@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html {{ block language . }}lang="{{ $.Site.LanguageCode | default "en" }}"{{ end }}>
+<html {{ block "language" . }}lang="{{ $.Site.LanguageCode | default "en" }}"{{ end }}>
 {{- partial "head.html" . -}}
 
 <body>
