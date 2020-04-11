@@ -3,6 +3,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="{{ block "description" . }}{{ .Site.Description }}{{ end }}">
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
   <script src="https://kit.fontawesome.com/911291c64e.js" crossorigin="anonymous"></script>
   {{ if .Site.Params.favicon }}
