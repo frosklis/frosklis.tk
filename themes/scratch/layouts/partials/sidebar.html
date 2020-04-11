@@ -10,12 +10,12 @@
     </div>
     <div class="tc">
       {{ with .Site.Params.github }}<a class="ma2" href="https://github.com/{{.}}"><i
-          class="fa-2x fab fa-github"></i></a>{{ end}}
+          class="fa-2x fab fa-github" aria-label="github" title="github"></i></a>{{ end}}
       {{ with .Site.Params.linkedin }}<a class="ma2" href="https://linkedin.com/in/{{.}}"><i
-          class="fa-2x fab fa-linkedin"></i></a>{{ end}}
+          class="fa-2x fab fa-linkedin" aria-label="linkedin" title="linkedin"></i></a>{{ end}}
       {{ with .Site.Params.twitter }}<a class="ma2" href="https://twitter.com/{{.}}"><i
-          class="fa-2x fab fa-twitter"></i></a>{{ end}}
-      {{ with .Site.Params.email }}<a class="ma2" href="mailto:{{.}}"><i class="fa-2x fas fa-envelope"></i></a>{{ end}}
+          class="fa-2x fab fa-twitter" aria-label="twitter" title="twitter"></i></a>{{ end}}
+      {{ with .Site.Params.email }}<a class="ma2" href="mailto:{{.}}"><i class="fa-2x fas fa-envelope" aria-label="email" title="email"></i></a>{{ end}}
     </div>
 
   </div>
