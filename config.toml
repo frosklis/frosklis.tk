@@ -8,6 +8,7 @@ theme = "scratch"
 GoogleAnalytics = "UA-267152-14"
 newContentEditor = "code"
 disqus = "frosklis"
+languageCode = "es-es"
 
 [params]
   author = "Claudio Noguera"
