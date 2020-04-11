@@ -1,7 +1,6 @@
 baseURL = "https://frosklis.tk/"
 languageCode = "es-es"
 title = "Claudio Noguera"
-description = "Web de Claudio Noguera"
 theme = "scratch"
 GoogleAnalytics = "UA-267152-14"
 newContentEditor = "code"
