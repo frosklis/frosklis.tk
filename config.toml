@@ -23,8 +23,16 @@ disqus = "frosklis"
 disableKinds = ["section"]
 
 [permalinks]
-    # :title is used if :slug is not defined in post frontmatter
-    posts = "/:year/:month/:slug/"
-    archm = "/:year/:month/"
-    archy = "/:year/"
+  # :title is used if :slug is not defined in post frontmatter
+  posts = "/:year/:month/:slug/"
+  archm = "/:year/:month/"
+  archy = "/:year/"
 
+[markup]
+  # defaultMarkdownHandler = "goldmark"
+  defaultMarkdownHandler = "blackfriday"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
+      unsafe = true
+      xhtml = true
