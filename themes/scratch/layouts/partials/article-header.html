@@ -5,11 +5,17 @@
   </h1>
   <div class="post-meta">
     <i class="far fa-calendar"></i> {{ .PublishDate.Format "2006-01-02" }}
-    {{ with .Params.category }}
-      <i class="fas fa-hashtag"></i>
-      {{ if eq $links false}} {{ . }}{{ else }}<a
-        href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"> {{ . }}</a>{{ end }}
-    {{ end }}
+    {{ with .Params.categories }}
+    <i class="fas fa-hashtag"></i>
+    {{ if isset . -1 }}
+    {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ if eq $links false}}{{$e}}{{ else }}<a
+    href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"> {{ $e }}</a>{{ end }}{{end}}
+    
+    {{ else }}
+    {{ if eq $links false}}{{ . }}{{ else }}<a
+    href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"> {{ . }}</a>{{ end }}
+    {{end}}
+      {{ end }}
   </div>
   {{ with .Params.tags }}
   <div class="post-meta">
@@ -18,7 +24,8 @@
     {{else}}
     <i class="fas fa-tag"></i>
     {{end}}
-    {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ if eq $links false}}{{$e}}{{ else }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"> {{ $e }}</a>{{ end }}{{end}}
+    {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ if eq $links false}}{{$e}}{{ else }}<a
+      href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"> {{ $e }}</a>{{ end }}{{end}}
   </div>
   {{ end }}
 </header>

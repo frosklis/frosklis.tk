@@ -5,7 +5,7 @@
   </div>
   <div class="article-list">
 
-    {{ range first 10 .Site.RegularPages }}
+    {{ range first 100 .Site.RegularPages }}
     <a href="{{.Permalink}}" class="a-block" aria-label="{{.Title}}">
     <article>
       {{ .Scratch.Set "links" false }}
