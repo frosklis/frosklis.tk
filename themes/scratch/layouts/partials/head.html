@@ -20,5 +20,9 @@
   {{ end }}
   {{ $style := .Scratch.Get "style"}}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
-  
+
+  {{ if .Site.GoogleAnalytics }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
+
 </head>
