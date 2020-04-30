@@ -27,7 +27,8 @@ $$y + dy = x^2 + 2xdx + d^2x $$
 
 Gracias a Leibniz ese $d^2x$ sabemos que se puede despreciar frente al término anterior de primer orden $2xdx$. Entonces queda lo que se espera como derivada.
 
-$$ dy = 2xdx$$$$\frac{dy}{dx} = 2x$$
+$$ dy = 2xdx$$
+$$\frac{dy}{dx} = 2x$$
 
 El cálculo siguió avanzando después de Newton y Leibniz: extensión a funciones de más de una variable, entendimiento de los problemas que no se pueden resolver, o la teoría del caos que dice una cosa tan antiintuitiva como cierta que es que el hecho de conocer todas las variables de un sistema y de que el sistema sea determinista no convierte a ese sistema en predecible. Es sorprendente.
 
