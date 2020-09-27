@@ -1,5 +1,5 @@
 ---
-title: "Energy Myths and Realities"
+title: "Energy myths and realities"
 date: 2020-07-20T20:48:53+02:00
 draft: false
 categories: [Reseñas]
