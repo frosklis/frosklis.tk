@@ -4,7 +4,7 @@ date: 2020-04-27T22:19:09+02:00
 draft: false
 tags: [spoilers, series, tv]
 ---
-Hoy he visto el último capítulo de [Homeland](https://www.sho.com/homeland). Y me ha gustado. Creo que le han dado un final adecuado a la serie. No sé cómo de plausible, creo que poco; aunque [cuando se ven cosas como esta], a uno le entran dudas. La señora de ese vídeo fue "chief of disguise" de la CIA y su marido es el personaje que interpreta Ben Affleck en Argo.
+Hoy he visto el último capítulo de [Homeland](https://www.sho.com/homeland). Y me ha gustado. Creo que le han dado un final adecuado a la serie. No sé cómo de plausible, creo que poco; aunque [cuando se ven cosas como esta](https://www.youtube.com/watch?v=mUqeBMP8nEg), a uno le entran dudas. La señora de ese vídeo fue "chief of disguise" de la CIA y su marido es el personaje que interpreta Ben Affleck en Argo.
 
 Esta última temporada transcurre en Pakistán. Pakistán tiene sus líos internos, luchas de poder, talibanes, etc. y en esas el presidente americano y el pakistaní mueren en un accidente de helicóptero, cosa indemostrable sin la caja negra. Tan poco plausible es lo del accidente, que los talibanes se atribuyen falsamente el atentado no existente y comienza una escalada de violencia que puede desencadenar una guerra.
 
