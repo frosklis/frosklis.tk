@@ -1,7 +1,7 @@
 +++
 categories = ""
-date = ""
-tags = []
+date = 2020-11-30T15:23:00Z
+tags = ["retos"]
 title = "Un libro a la semana"
 
 +++
