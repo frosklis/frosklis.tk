@@ -2,7 +2,7 @@
 date: 2020-11-30T15:23:00Z
 tags: ["retos"]
 title: "Un libro a la semana"
-draft: false
+draft: False
 ---
 
 Hoy en día, con internet y con los libros electrónicos, todo se puede aprender: es una maravilla para los que tenemos curiosidad por el mundo. También hay cursos online en muchos sitios ([Coursera](https://www.coursera.org "Coursera"), [Udacity](https://www.udacity.com "Udacity"), [Udemy](https://www.udemy.com "Udemy"), [Khan Academy](https://www.khanacademy.org "Khan Academy")), incluso en youtube hay muchos materiales gratuitos par todo el mundo; de hecho en la mayoría de sitios por lo único que se paga es por un certificado que acredita que has hecho el curso, no por el acceso a los contenidos.
