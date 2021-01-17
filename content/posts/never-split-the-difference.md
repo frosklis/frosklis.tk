@@ -1,6 +1,6 @@
 ---
 title: "Never split the difference"
-date: 2021-01-17T16:01:22+02:00
+date: 2021-01-17T02:01:22+02:00
 draft: false
 categories: Reseñas
 ---
