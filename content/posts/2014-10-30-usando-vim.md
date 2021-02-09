@@ -1,5 +1,6 @@
 ---
 title: "Usando vim"
+slug: usando-vim
 date: 2019-07-02T22:33:19+02:00
 draft: false
 tags: [vim, hugo]
