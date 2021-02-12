@@ -3,7 +3,7 @@ languageCode = "es-es"
 title = "Claudio Noguera"
 theme = "scratch"
 GoogleAnalytics = "UA-267152-14"
-newContentEditor = "code"
+newContentEditor = "nvim"
 disqus = "frosklis"
 
 [params]
