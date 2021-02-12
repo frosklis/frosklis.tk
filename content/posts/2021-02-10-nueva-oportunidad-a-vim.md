@@ -2,7 +2,7 @@
 title: "Nueva Oportunidad a Vim"
 date: 2021-02-10T14:07:38+01:00
 draft: false
-tags: vim, productividad, software
+tags: ["vim", "productividad", "software"]
 ---
 Recientemente le he dado una [nueva oportunidad a Vim](link a mí mismo) como editor. Ando aprendiendo Rust y he visto trabajar a Jon Genstedt, que hace sesiones de programación en directo en youtube y, además de la diferencia de conocimiento que tiene respecto a mí en Rust, utiliza de una forma muy rápida `neovim`.
 
