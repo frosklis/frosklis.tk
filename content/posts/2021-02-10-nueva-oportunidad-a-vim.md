@@ -1,5 +1,5 @@
 ---
-title: "Nueva Oportunidad a Vim"
+title: "Nueva oportunidad a Vim"
 date: 2021-02-10T14:07:38+01:00
 draft: false
 tags: ["vim", "productividad", "software"]
