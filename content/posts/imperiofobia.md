@@ -3,6 +3,7 @@ title: "Imperiofobia"
 date: 2020-09-27T16:16:22+02:00
 draft: false
 categories: Reseñas
+tags: [libros]
 ---
 
 He terminado recientemente de leer el libro [*Imperiofobia y leyenda negra*, de Elvira Roca Barea](https://www.goodreads.com/book/show/33402665-imperiofobia-y-leyenda-negra). Da mucho que pensar sobre el mundo en el que vivimos ahora. A pesar de lo largo que es (me parece que con menos de la mitad era suficiente), le he puesto cinco estrellas muy merecidas.
