@@ -1,0 +1,31 @@
+{{ define "main" }}
+<h1>
+  {{ if eq .Kind "taxonomy" }}
+  {{ if eq .Data.Singular "tag" }}
+  <i class="fas fa-tag"></i>
+  {{ else  if eq .Data.Singular "category" }}<i class="fas fa-hashtag"></i> {{ end }}
+  {{ end }}
+  &nbsp;
+  {{- .Title }}</h1>
+<div class="article-list">
+  <article>
+    {{ .Content }}
+  </article>
+  {{ range .Pages }}
+  <a href="{{.Permalink}}" class="a-block">
+    <article>
+      {{ .Scratch.Set "links" false }}
+      {{ partial "article-header.html" . }}
+      <p>{{.Summary}}</p>
+      {{ $featured_image := .Params.featured_image }}
+      {{ if $featured_image }}
+      <div class="post-item-image" style="background-image: url('{{$featured_image | relLangURL }}')">
+      </div>
+
+      {{ end }}
+    </article>
+  </a>
+  {{ end }}
+
+</div>
+{{ end }}

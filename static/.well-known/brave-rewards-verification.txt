@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: frosklis.tk
+Token: cad2ebf52023420e05225f7970adfc0ff9fdfaa6011e0e09e819973c6ae8c2b7
