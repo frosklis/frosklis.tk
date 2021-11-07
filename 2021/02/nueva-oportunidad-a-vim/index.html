@@ -1,0 +1,80 @@
+<!doctype html><html lang=es-es><head>
+<meta charset=utf-8>
+<meta name=HandheldFriendly content="True">
+<meta name=MobileOptimized content="320">
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Sitio web de Claudio Noguera">
+<meta name=ROBOTS content="INDEX, FOLLOW">
+<title>Claudio Noguera</title>
+<script src=https://kit.fontawesome.com/911291c64e.js crossorigin=anonymous></script>
+<link rel=icon href=/favicon.png>
+<link rel=stylesheet href=https://frosklis.tk/main.min.9432c58a78afa1a36b5efdf8d484dd91179bf77e8b3fd002c30a235ff0cc1646.css>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-267152-14','auto'),ga('send','pageview'))</script>
+</head><body><nav class=sidebar>
+<a href=https://frosklis.tk/>
+<h1 class=tc>Claudio Noguera</h1>
+</a>
+<div>
+<div class="ml5 mr5 mb2 ma1 tc">
+<a href=https://frosklis.tk/>
+<img src=/claudio_salinas.jpg class=shadow-1 alt=logo>
+</a>
+</div>
+<div class=tc>
+<a class=ma2 href=https://github.com/frosklis><i class="fa-2x fab fa-github" aria-label=github title=github></i></a>
+<a class=ma2 href=https://linkedin.com/in/claudionoguera><i class="fa-2x fab fa-linkedin" aria-label=linkedin title=linkedin></i></a>
+<a class=ma2 href=https://twitter.com/claudio1985><i class="fa-2x fab fa-twitter" aria-label=twitter title=twitter></i></a>
+<a class=ma2 href=https://goodreads.com/claudio85><i class="fa-2x fab fa-goodreads" aria-label=goodreads title=goodreads></i></a>
+</div>
+</div>
+<div class="copyright tc">2021
+<a href=https://creativecommons.org/licenses/by/4.0/ aria-label="Creative Commons license"><i class="fa-lg fab fa-creative-commons"></i> <i class="fa-lg fab fa-creative-commons-by"></i> </a>
+</div>
+</nav><div id=content>
+<article>
+<header>
+<h1>
+Nueva oportunidad a Vim
+</h1>
+<div class=post-meta>
+<i class="far fa-calendar"></i>&nbsp;2021-02-10
+</div>
+<div class=post-meta>
+<i class="fas fa-tag"></i>
+&nbsp;
+<a href=/tags/vim> vim</a>, <a href=/tags/productividad> productividad</a>, <a href=/tags/software> software</a>
+</div>
+</header>
+<p>Recientemente le he dado una <a href="link a mí mismo">nueva oportunidad a Vim</a> como editor. Ando aprendiendo Rust y he visto trabajar a Jon Genstedt, que hace sesiones de programación en directo en youtube y, además de la diferencia de conocimiento que tiene respecto a mí en Rust, utiliza de una forma muy rápida <code>neovim</code>.</p>
+<p>En la Wikipedia se puede ver toda la historia de vi, vim y neovim. Son cada uno la evolución del anterior, aunque la compatibilidad es casi total. La diferencia práctica para mí parece está en los plugins, que es más fácil desarrollarlos para neovim. Aunque creo que me daría igual usar uno que otro, he decidido el más moderno, neovim.</p>
+<p>No es para principiantes, pero si de verdad quieres que sea útil, lo importante son los plugins, que es con lo que se consigue tener vim al gusto de uno y que te dé la misma funcionalidad que <code>VsCode</code>. Los plugins y la configuración del vimrc (init.vim en el caso de neovim) son un mundo en sí mismo. A eso hay que añadirle además la memoria muscular para que los comandos y atajos de teclado salgan automáticamente, más allá insertar, borrar, guardar y cerrar (prácticamente todo lo que sabía hacer hasta ahora).</p>
+<p>Cuento algunos problemas que tengo y cómo los he ido resolviendo:</p>
+<h1 id=ortografía>Ortografía</h1>
+<p>Hay una opción en vim, <code>set spell</code>, que detecta errores ortográficos&mldr; en inglés. Para ponerlo en español hay que especificarlo: <code>set spelllang=es_es</code>. Pero eso hay que hacerlo manualmente en cada archivo. Para detectar el idioma automáticamente hay un plugin que utiliza aspell (o el mucho peor hunspell), que no es el corrector ortográfico que utiliza vim por defecto. En cualquier caso, el plugin es:</p>
+<pre tabindex=0><code>Plug &#39;konfekt/vim-DetectSpellLang&#39;
+let g:detectspelllang_langs = {
+      \ &#39;aspell&#39;   : [ &#39;en_US&#39;, &#39;de_DE&#39;, &#39;es&#39;, &#39;it&#39; ],
+      \ }</code></pre>
+<p>Funciona bien, aunque todavía no tengo resuelto el que no aplique la corrección ortográfica en ciertas partes del archivo. En el markdown en el que edito este blog, la cabecera me gustaría omitirla. Investigaré.</p>
+<h1 id=completado-de-código>Completado de código</h1>
+<p>En este caso, sin hacer gran cosa, el plugin funciona directamente. Aunque reconozco que no sé muy bien quién es el encargado de qué:</p>
+<pre tabindex=0><code>Plug &#39;dense-analysis/ale&#39;
+Plug &#39;neoclide/coc.nvim&#39;, {&#39;branch&#39;: &#39;release&#39;}
+Plug &#39;racer-rust/vim-racer&#39;</code></pre>
+<p>El caso es que funciona muy bien.</p>
+<h1 id=abrir-archivos>Abrir archivos</h1>
+<p>Abro archivos desde el propio vim con una extensión que se llama CtrlP. Muy útil, funciona como VsCode.</p>
+<p><code>Plug 'ctrlpvim/ctrlp.vim'</code></p>
+<p>También hay otro que se llama <code>fzf</code>, en teoría más útil porque puedes buscar dentro del texto de los archivos. Pero todavía no lo he probado.</p>
+<h1 id=buffers>Buffers</h1>
+<p>Estoy acostumbrado a usar VsCode como bloc de notas informal en ficheros que dejo sin guardar. Lo primero que probé fue <code>e &lt;ARCHIVO></code> pero eso lo abre en la misma ventana y pierdes el actual. Eso creía hasta que <a href=https://vi.stackexchange.com/questions/8345/a-built-in-way-to-make-vim-open-a-new-buffer-with-file>leí StackOverflow</a>. Resulta que el buffer no se pierde, sólo hay que aprender a navegar por ellos.</p>
+<p>Estoy en ello.</p>
+<h1 id=navegación-por-código>Navegación por código</h1>
+<p>Estoy acostumbrado, en cualquier IDE, a hacer click en el nombre de una función o de una variable y que me lleve al archivo donde se definió. Necesito de alguna forma configurar las tags a aprender el comando correspondiente, porque creo que con <code>vim-racer</code>ya debería funcionar.</p>
+</article>
+<script type=text/javascript async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">MathJax.Hub.Config({tex2jax:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:!0,processEnvironments:!0,skipTags:['script','noscript','style','textarea','pre'],TeX:{equationNumbers:{autoNumber:"AMS"},extensions:["AMSmath.js","AMSsymbols.js"]}}}),MathJax.Hub.Queue(function(){var b=MathJax.Hub.getAllJax(),a;for(a=0;a<b.length;a+=1)b[a].SourceElement().parentNode.className+=' has-jax'}),MathJax.Hub.Config({TeX:{equationNumbers:{autoNumber:"AMS"}}})</script></div><footer>
+<div class="copyright tc">2021
+<a href=https://creativecommons.org/licenses/by/4.0/ aria-label="Creative Commons license"><i class="fa-lg fab fa-creative-commons"></i> <i class="fa-lg fab fa-creative-commons-by"></i> </a>
+</div>
+</footer></body>
+</html>
