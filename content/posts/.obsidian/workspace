@@ -1,0 +1,90 @@
+{
+  "main": {
+    "id": "35412dcbe3af615c",
+    "type": "split",
+    "children": [
+      {
+        "id": "5d921857fe7fa495",
+        "type": "leaf",
+        "state": {
+          "type": "graph",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6bef56813208b4ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "0d84f7a40b94c70f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02a02987092194fc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e0fb1a35e8e43d0c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d6f1c8711441a086",
+    "type": "split",
+    "children": [
+      {
+        "id": "adc6ed52e1dc4685",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "999bdbf5001bbfe6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5d921857fe7fa495",
+  "lastOpenFiles": [
+    "2019-07-02-usando-vim.md",
+    "jekyll-is-so-nice.md"
+  ]
+}
